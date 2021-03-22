@@ -1,0 +1,16 @@
+<svg xlink="http://www.w3.org/1999/xlink" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg"  height="60px" width="30px">
+<g data-v-1fe30871="" data-index="4" class="svg-gate gate editable selectable">
+    <g style="transform: translate(0, 10px)">
+        <g>
+            <line x1="16" y1="0" x2="16" y2="40" style="stroke-width: 3; stroke: var(--composer-gates-classical, #fff);"></line>
+        <g>
+            <line x1="8" y1="-8" x2="24" y2="8" style="stroke-width: 3; stroke: var(--composer-gates-classical, #fff);"></line>
+            <line x1="24" y1="-8" x2="8" y2="8" style="stroke-width: 3; stroke: var(--composer-gates-classical, #fff);"></line>
+        </g>
+        <g>
+             <line x1="8" y1="32" x2="24" y2="48" style="stroke-width: 3; stroke: var(--composer-gates-classical, #fff);"></line>
+            <line x1="24" y1="32" x2="8" y2="48" style="stroke-width: 3; stroke: var(--composer-gates-classical, #fff);"></line>
+        </g>
+    </g>
+</g></g>
+</svg>
