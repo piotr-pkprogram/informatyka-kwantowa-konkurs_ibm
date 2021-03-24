@@ -1,0 +1,43 @@
+{
+    "name": "informatyka-kwantowa-konkurs_ibm",
+    "version": "1.0.0",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start:dev": "parcel index.pug --no-cache",
+        "build:prod": "parcel build index.pug -d docs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Piotr385/informatyka-kwantowa-konkurs_ibm.git"
+    },
+    "author": "Piotr Kułakowski",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Piotr385/informatyka-kwantowa-konkurs_ibm/issues"
+    },
+    "homepage": "https://github.com/Piotr385/informatyka-kwantowa-konkurs_ibm#readme",
+    "description": "",
+    "devDependencies": {
+        "@parcel/transformer-pug": "^2.0.0-beta.2",
+        "@parcel/transformer-sass": "^2.0.0-beta.2",
+        "autoprefixer-core": "^6.0.1",
+        "grunt-uncss": "^0.10.0",
+        "markdown": "^0.5.0",
+        "parcel": "^2.0.0-beta.2",
+        "parcel-bundler": "^1.12.5",
+        "postcss-fontpath": "^1.0.0",
+        "postcss-modules": "^3.2.2",
+        "postcss-uncss": "^0.17.0",
+        "pug": "^3.0.2",
+        "sass": "^1.32.8",
+        "scss": "^0.2.4",
+        "tailwindcss": "^2.0.4",
+        "uncss": "^0.17.3"
+    },
+    "dependencies": {
+        "postcss": "^8.2.8",
+        "postcss-cli": "^8.3.1",
+        "postcss-scss": "^3.0.5"
+    }
+}
