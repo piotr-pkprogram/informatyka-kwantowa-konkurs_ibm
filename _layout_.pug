@@ -1,0 +1,32 @@
+doctype html
+html
+    block variables
+    head
+        title #{title}
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        meta(name='description' content=description)
+        meta(property='keywords' content=keywords)
+        meta(property='og:title' content=title)
+        meta(property='og:site_name' content=site_name)
+        meta(property='og:type' content='website')
+        meta(property='og:url' content=url)
+        meta(property='og:image' content=`${prefix}favicon.ico`)
+        link(rel='apple-touch-icon' href=`${prefix}favicon.ico`)
+        link(rel='stylesheet' href=`${prefix}css/main.scss` type='text/css')
+        meta(property='og:description' content=description)
+        link(rel='canonical' href='')
+        meta(name='theme-color' content='#fafafa')
+        script(src='https://kit.fontawesome.com/1215c7c9b1.js' crossorigin='anonymous')
+        //- Add your site or application content here
+        script(src=`${prefix}js/vendor/modernizr-3.11.2.min.js`)
+        script(src=`${prefix}js/vendor/modernizr.js`)
+        script(src=`${prefix}js-webshim/minified/polyfiller.js`)
+        //- script(src='https://www.google-analytics.com/analytics.js')
+    body
+        include ./components/header
+        include ./components/phone-header
+        main 
+            block article-container
+        include ./components/footer.pug
+        script(src=`${prefix}js/main.js` type='module')
