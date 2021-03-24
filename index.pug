@@ -1,14 +1,12 @@
 extends _layout_.pug
 
-block seo
-    title Informatka kwantowa dla każdego - konkurs IBM 
-    meta(name='description' content='')
-    meta(property='keywords' content='')
-    meta(property='og:title' content='')
-    meta(property='og:site_name' content='')
-    meta(property='og:type' content='website')
-    meta(property='og:url' content="")
-    meta(property='og:image' content='favicon.ico')
-    link(rel='apple-touch-icon' href='favicon.ico')
+block variables
+    -let prefix = './';
+    -const description = '';
+    -const keywords = '';
+    -const title = 'Informatka kwantowa dla każdego - konkurs IBM';
+    -const site_name = 'Strona Główna';
+    -const url = '';
 
-block body
+block article-container
+    
