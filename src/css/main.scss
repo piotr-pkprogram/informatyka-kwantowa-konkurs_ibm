@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.header {
+    @apply w-full hidden grid-flow-col bg-main text-txmain;
+    &__logo-img {
+        @apply w-1/5;
+    }
+}
+
+.phone-header {
+    @apply w-full grid grid-flow-col bg-main text-txmain;
+    &__img {
+        @apply w-1/5;
+    }
+}

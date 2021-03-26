@@ -4,8 +4,8 @@
     "main": "main.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start:dev": "parcel index.pug --no-cache",
-        "build:prod": "parcel build index.pug -d docs"
+        "start:dev": "parcel src/index.pug --no-cache",
+        "build:prod": "parcel build src/index.pug -d docs"
     },
     "repository": {
         "type": "git",
@@ -36,6 +36,9 @@
         "uncss": "^0.17.3"
     },
     "dependencies": {
+        "browserslist": "^4.16.3",
+        "gulp": "^4.0.2",
+        "gulp-postcss": "^9.0.0",
         "postcss": "^8.2.8",
         "postcss-cli": "^8.3.1",
         "postcss-scss": "^3.0.5"
