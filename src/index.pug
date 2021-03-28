@@ -9,6 +9,12 @@ block variables
     -const url = '';
     -const sectionTitle = 'Informatka kwantowa dla każdego';
     -const sectionSpan = '';
+    -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting.pug', 'Informatyki kwantowej', Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.md'), Section('Czym jest qubit?', 'whatIsAQubit.md'), Section('Co to jest splątanie kwantowe?', 'whatIsAQuantumEntanglement'), Section('Czym jest komputer kwantowy i jak działa?', 'whatIsAQuantumComputer.md'), Section('Jak zbudowany jest komputer kwantowy?', 'howAQuantumComputerIsBuilt.md')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits.pug', 'kwantowe', Section('Wprowadzenie', 'introdaction.md'), Section('Bramka Not', 'not_gate.md'), Section('Tworzenie superpozycji i interferencji za pomocą bramki Hadamarda', 'H_gate.md'), Section('Faza kwantowa i kąt fazowy qubitu', 'phase_angle.md'), Section('Bramki ROT', 'ROT_gates.md'), Section('Więcej o bramkach negujących', 'moreOfNegatingGates.md'), Section('Identyczność i bramka Unitary', 'I_and_U_gate.md'), Section('Splątania kwantowe w bramkach - CNOT i Toffoly', 'entanglement_in_quantum_gates.md'), Section('Zamiana wartości stanów qubitów - SWAP i CS SWAP', 'Swap_and_Csswap_gates.md')), new Article('Algorytmy kwantowe', 'quantum_algorithms.pug', '', Section('Wprowadzenie', 'introduction.md'), Section('Algorytm Deutscha-Jozsy', 'deutscha-jozsy-algorithm.md'))];
 
 block article-container
-    
+    each article in articles
+        .section-articles__link-article-container
+            .section-articles__title-container
+                h2.section-articles__title-link #{article.title} 
+                span.section-articles__span #{article.span}
+            a.section-articles__link(href=`${prefix}${article.url}`)
