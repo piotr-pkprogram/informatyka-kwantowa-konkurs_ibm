@@ -3,6 +3,6 @@
 Technologies:
 
 * parcel,
-* silnik widoków pug,
+* views engine pug,
 * tailwindcss,
 * markdown
