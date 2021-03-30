@@ -9,7 +9,8 @@ block variables
     -const url = '';
     -const sectionTitle = 'Informatka kwantowa dla każdego';
     -const sectionSpan = '';
-    -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting.pug', 'Informatyki kwantowej', Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.md'), Section('Czym jest qubit?', 'whatIsAQubit.md'), Section('Co to jest splątanie kwantowe?', 'whatIsAQuantumEntanglement'), Section('Czym jest komputer kwantowy i jak działa?', 'whatIsAQuantumComputer.md'), Section('Jak zbudowany jest komputer kwantowy?', 'howAQuantumComputerIsBuilt.md')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits.pug', 'kwantowe', Section('Wprowadzenie', 'introdaction.md'), Section('Bramka Not', 'not_gate.md'), Section('Tworzenie superpozycji i interferencji za pomocą bramki Hadamarda', 'H_gate.md'), Section('Faza kwantowa i kąt fazowy qubitu', 'phase_angle.md'), Section('Bramki ROT', 'ROT_gates.md'), Section('Więcej o bramkach negujących', 'moreOfNegatingGates.md'), Section('Identyczność i bramka Unitary', 'I_and_U_gate.md'), Section('Splątania kwantowe w bramkach - CNOT i Toffoly', 'entanglement_in_quantum_gates.md'), Section('Zamiana wartości stanów qubitów - SWAP i CS SWAP', 'Swap_and_Csswap_gates.md')), new Article('Algorytmy kwantowe', 'quantum_algorithms.pug', '', Section('Wprowadzenie', 'introduction.md'), Section('Algorytm Deutscha-Jozsy', 'deutscha-jozsy-algorithm.md'))];
+    -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej',  Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.pug')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', Section('Wprowadzenie', 'introdaction.pug')), new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introdaction.pug'))];
+    -let i = 0;
 
 block article-container
     each article in articles
@@ -17,4 +18,10 @@ block article-container
             .section-articles__title-container
                 h2.section-articles__title-link #{article.title} 
                 span.section-articles__span #{article.span}
-            a.section-articles__link(href=`${prefix}${article.url}`)
+            a.section-articles__link(href=`${prefix}${article.url}/${article.sections[0].url}`)
+                if (i === 0)
+                    img.section-articles__img(src=`${prefix}img/chevron_left-24px.svg`)
+                    -i++; 
+                else 
+                    img.section-articles__img(src=`${prefix}img/chevron_right-24px.svg`)
+                    -i--;
