@@ -11,5 +11,7 @@ block variables
     -const sectionSpan = 'kwantowej';
     -const article = new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej', Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.pug'), Section('Czym jest qubit?', 'whatIsAQubit.pug'), Section('Co to jest splątanie kwantowe?', 'whatIsAQuantumEntanglement.pug'), Section('Czym jest komputer kwantowy i jak działa?', 'whatIsAQuantumComputer.pug'), Section('Jak zbudowany jest komputer kwantowy?', 'howAQuantumComputerIsBuilt.pug'));
 
-block article-container
-    
+block main
+    include ../../components/aside.pug
+    article.article-container
+        include:markdown-it ./markdown/introdaction.md  

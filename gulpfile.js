@@ -7,22 +7,16 @@ const postcss = require('gulp-postcss');
 const tailwindcss = require('tailwindcss');
 const tailwindcssConfig = require('./tailwind.config.js');
 const autoprefixer = require('gulp-autoprefixer');
+const babel = require('gulp-babel');
+const minifyJs = require('gulp-uglify');
 
 compileSass.compiler = require('node-sass');
 
 const Autoprefixer = [
     'last 2 versions',
-    "> 1%",
-    "ie >= 8",
-    "edge >= 15",
-    "ie_mob >= 10",
-    "ff >= 45",
-    "chrome >= 45",
-    "safari >= 7",
-    "opera >= 23",
-    "ios >= 7",
-    "android >= 4",
-    "bb >= 10"
+    "defaults",
+    "not IE 11",
+    "maintained node versions"
 ]
 
 const bundleSass = () =>
@@ -42,9 +36,22 @@ const bundleSass = () =>
     .pipe(sourceMaps.write('./'))
     .pipe(dest('src/css'));
 
+const bundleJs = () =>
+    src('./src/js/**/*.js')
+    .pipe(sourceMaps.init())
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
+    .pipe(minifyJs())
+    .pipe(concat('main.min.js'))
+    .pipe(sourceMaps.write('./'))
+    .pipe(dest('src/js.min'));
+
 const devWatch = () => {
     watch('./src/scss/**/*.scss', bundleSass);
+    watch('./src/js/**/*.js', bundleJs);
 }
 
+exports.bundleJs = bundleJs;
 exports.bundleSass = bundleSass;
 exports.devWatch = devWatch;

@@ -9,7 +9,10 @@ block variables
     -const url = '';
     -const sectionTitle = 'Algorytmy kwantowe';
     -const sectionSpan = '';
-    -const article = new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introduction.pug'), Section('Algorytm Deutscha-Jozsy', 'deutscha-jozsy-algorithm.pug'));
+    -const article = new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introdaction.pug'), Section('Algorytm Deutscha-Jozsy', 'deutscha-jozsy-algorithm.pug'));
 
-block article-container
+block main
+    include ../../components/aside.pug
+    article.article-container
+        include:markdown-it ./markdown/introdaction.md    
     

@@ -12,16 +12,18 @@ block variables
     -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej',  Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.pug')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', Section('Wprowadzenie', 'introdaction.pug')), new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introdaction.pug'))];
     -let i = 0;
 
-block article-container
-    each article in articles
-        .section-articles__link-article-container
-            .section-articles__title-container
-                h2.section-articles__title-link #{article.title} 
-                span.section-articles__span #{article.span}
-            a.section-articles__link(href=`${prefix}${article.url}/${article.sections[0].url}`)
-                if (i === 0)
-                    img.section-articles__img(src=`${prefix}img/chevron_left-24px.svg`)
-                    -i++; 
-                else 
-                    img.section-articles__img(src=`${prefix}img/chevron_right-24px.svg`)
-                    -i--;
+block main
+    include ./components/title-container
+    .section-articles
+        each article in articles
+            .section-articles__link-article-container
+                .section-articles__title-container
+                    h2.section-articles__title-link #{article.title} 
+                    span.section-articles__span #{article.span}
+                a.section-articles__link(href=`${prefix}${article.url}/${article.sections[0].url}`)
+                    if (i === 0)
+                        img.section-articles__img(src=`${prefix}img/chevron_left-24px.svg`)
+                        -i++; 
+                    else 
+                        img.section-articles__img(src=`${prefix}img/chevron_right-24px.svg`)
+                        -i--;
