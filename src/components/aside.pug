@@ -3,6 +3,6 @@ aside.navigation-aside
         .navigation-aside__title #{article.title} 
         .navigation-aside__span #{article.span}
     ul.navigation-aside__list
-    each section in article.sections
-        li.navigation-aside__list-element 
-            a.navigation-aside__link(href=`./${section.url}`) #{section.title}
+        each section in article.sections
+            li.navigation-aside__list-element 
+                a.navigation-aside__link(href=`./${section.url}`) #{section.title}

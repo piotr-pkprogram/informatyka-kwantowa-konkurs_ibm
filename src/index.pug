@@ -9,12 +9,12 @@ block variables
     -const url = '';
     -const sectionTitle = 'Informatka kwantowa dla każdego';
     -const sectionSpan = '';
-    -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej',  Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.pug')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', Section('Wprowadzenie', 'introdaction.pug')), new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introdaction.pug'))];
+    -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej',  Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', Section('Wprowadzenie', 'introdaction.html')), new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introdaction.html'))];
     -let i = 0;
-
-block main
-    include ./components/title-container
-    .section-articles
+ 
+block main    
+    include ./components/title-container     
+    .section-articles   
         each article in articles
             .section-articles__link-article-container
                 .section-articles__title-container

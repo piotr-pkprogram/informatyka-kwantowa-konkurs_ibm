@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './_base-preset.scss';
+body {
+    @apply bg-main text-txmain;
+}
+
+img[src$="?display=inline"] {
+    @apply inline;
+}
+
 .header {
     @apply w-full hidden grid-flow-col bg-main text-txmain;
     &__logo-img {

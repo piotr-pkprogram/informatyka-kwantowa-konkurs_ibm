@@ -1,0 +1,17 @@
+@layer base {
+    h1 {
+        @apply block text-3xl font-bold mt-3 mb-3;
+    }
+    h2 {
+        @apply block text-2xl font-bold mt-3 mb-3;
+    }
+    hr {
+        @apply block border box-border mt-2 mb-2 text-gray-400;
+    }
+    ul {
+        @apply block list-disc mt-4 mb-4;
+    }
+    ol {
+        @apply block list-decimal mt-4 mb-4;
+    }
+}

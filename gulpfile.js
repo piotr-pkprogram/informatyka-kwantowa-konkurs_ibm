@@ -1,4 +1,4 @@
-const { src, dest, watch } = require('gulp');
+const { series, src, dest, watch } = require('gulp');
 const compileSass = require('gulp-sass');
 const minifyCss = require('gulp-clean-css');
 const sourceMaps = require('gulp-sourcemaps');
@@ -9,6 +9,9 @@ const tailwindcssConfig = require('./tailwind.config.js');
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 const minifyJs = require('gulp-uglify');
+const browserSync = require('browser-sync').create();
+const pug = require('gulp-pug');
+const htmlmin = require('gulp-htmlmin');
 
 compileSass.compiler = require('node-sass');
 
@@ -19,8 +22,35 @@ const Autoprefixer = [
     "maintained node versions"
 ]
 
+const moveJsWebshim = () =>
+    src('./src/js-webshim/minified/polyfiller.js')
+    .pipe(minifyJs())
+    .pipe(dest('dist/js-webshim/minified/'));
+
+const moveImg = () =>
+    src('./src/img/**/*.*')
+    .pipe(dest('./dist/img'));
+
+const buildIndex = () =>
+    src('./src/index.pug', )
+    .pipe(pug())
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('./dist'));
+
+const buildSubpages = () =>
+    src('./src/subpages/**/*.pug')
+    .pipe(pug())
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('./dist/subpages'));
+
+const buildArticles = () =>
+    src('./src/articles/**/*.pug')
+    .pipe(pug())
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('./dist/articles'));
+
 const bundleSass = () =>
-    src('./src/scss/**/*.scss')
+    src('./src/scss/main.scss')
     .pipe(sourceMaps.init())
     .pipe(compileSass().on('error', compileSass.logError))
     .pipe(postcss([
@@ -34,7 +64,8 @@ const bundleSass = () =>
     .pipe(minifyCss())
     .pipe(concat('main.css'))
     .pipe(sourceMaps.write('./'))
-    .pipe(dest('src/css'));
+    .pipe(dest('dist/css'));
+
 
 const bundleJs = () =>
     src('./src/js/**/*.js')
@@ -43,15 +74,23 @@ const bundleJs = () =>
         presets: ['@babel/env']
     }))
     .pipe(minifyJs())
-    .pipe(concat('main.min.js'))
+    .pipe(concat('main.js'))
     .pipe(sourceMaps.write('./'))
-    .pipe(dest('src/js.min'));
+    .pipe(dest('dist/js'));
 
 const devWatch = () => {
+    browserSync.init({
+        server: "./dist"
+    });
+    watch('./src/index.pug', buildIndex);
+    watch('./src/articles/**/*.pug', buildArticles);
+    watch('./src/articles/**/*.md', buildArticles);
+    watch('./src/subpages/**/*.pug', buildSubpages);
     watch('./src/scss/**/*.scss', bundleSass);
-    watch('./src/js/**/*.js', bundleJs);
+    watch('./src/js/**/*.js', series(bundleJs, moveJsWebshim));
+    watch('./src/img/**/*.*', moveImg);
+    watch('./dist').on('change', browserSync.reload);
 }
 
-exports.bundleJs = bundleJs;
-exports.bundleSass = bundleSass;
 exports.devWatch = devWatch;
+exports.devBuild = series(buildIndex, buildSubpages, buildArticles, bundleSass, bundleJs, moveImg, moveJsWebshim);;
