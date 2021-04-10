@@ -22,6 +22,7 @@ const Autoprefixer = [
     "maintained node versions"
 ]
 
+// devBuild
 const moveJsWebshim = () =>
     src('./src/js-webshim/minified/polyfiller.js')
     .pipe(minifyJs())
@@ -86,11 +87,72 @@ const devWatch = () => {
     watch('./src/articles/**/*.pug', buildArticles);
     watch('./src/articles/**/*.md', buildArticles);
     watch('./src/subpages/**/*.pug', buildSubpages);
+    watch('./src/components/**/*.pug', series(buildIndex, buildSubpages, buildArticles));
     watch('./src/scss/**/*.scss', bundleSass);
+    watch('./tailwind.config.js', bundleSass);
     watch('./src/js/**/*.js', series(bundleJs, moveJsWebshim));
     watch('./src/img/**/*.*', moveImg);
     watch('./dist').on('change', browserSync.reload);
 }
 
+// prodBuild
+
+const prodMoveJsWebshim = () =>
+    src('./src/js-webshim/minified/polyfiller.js')
+    .pipe(minifyJs())
+    .pipe(dest('docs/js-webshim/minified/'));
+
+const prodMoveImg = () =>
+    src('./src/img/**/*.*')
+    .pipe(dest('./docs/img'));
+
+const prodBuildIndex = () =>
+    src('./src/index.pug', )
+    .pipe(pug())
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('./docs'));
+
+const prodBuildSubpages = () =>
+    src('./src/subpages/**/*.pug')
+    .pipe(pug())
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('./docs/subpages'));
+
+const prodBuildArticles = () =>
+    src('./src/articles/**/*.pug')
+    .pipe(pug())
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('./docs/articles'));
+
+const prodBundleSass = () =>
+    src('./src/scss/main.scss')
+    .pipe(sourceMaps.init())
+    .pipe(compileSass().on('error', compileSass.logError))
+    .pipe(postcss([
+        tailwindcss(tailwindcssConfig),
+    ]))
+    .pipe(autoprefixer({
+        browsers: Autoprefixer,
+        cascade: false,
+        grid: "autoplace"
+    }))
+    .pipe(minifyCss())
+    .pipe(concat('main.css'))
+    .pipe(sourceMaps.write('./'))
+    .pipe(dest('docs/css'));
+
+
+const prodBundleJs = () =>
+    src('./src/js/**/*.js')
+    .pipe(sourceMaps.init())
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
+    .pipe(minifyJs())
+    .pipe(concat('main.js'))
+    .pipe(sourceMaps.write('./'))
+    .pipe(dest('docs/js'));
+
 exports.devWatch = devWatch;
-exports.devBuild = series(buildIndex, buildSubpages, buildArticles, bundleSass, bundleJs, moveImg, moveJsWebshim);;
+exports.devBuild = series(buildIndex, buildSubpages, buildArticles, bundleSass, bundleJs, moveImg, moveJsWebshim);
+exports.prodBuild = series(prodBuildIndex, prodBuildSubpages, prodBuildArticles, prodBundleSass, prodBundleJs, prodMoveImg, prodMoveJsWebshim);

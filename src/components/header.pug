@@ -1,12 +1,12 @@
 header.header
     .header__logo
-        a.header__link(href=`${prefix}index.pug`)
+        a.header__link(href=`${prefix}index.html`)
             img.header__logo-img(src=`${prefix}img/main_logo.png`)
             .header__title Informatyka Kwantowa dla każdego
                 span.header__span-title konkurs IBM 
     .header__menu
-        ul.header__menu-list
-            li.header__menu-list-element
+        ul.header__menu-list 
+            li.header__menu-list-element.header__menu-list-element--first
                 a.header__menu-link(href=`${prefix}subpages/for_organisers.html`) Dla Organizatorów
             li.header__menu-list-element
                 a.header__menu-link(href=`${prefix}index.html`) Informaty kwantowa 

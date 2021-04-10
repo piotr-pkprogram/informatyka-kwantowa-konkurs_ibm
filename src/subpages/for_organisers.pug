@@ -10,19 +10,9 @@ block variables
     -const sectionTitle = 'Dla Organizatorów';
     -const sectionSpan = '';
     -const articles = [];
+    -let i = 0;
 
 block main
     include ../components/title-container
     .section-articles
-        each article in articles
-            .section-articles__link-article-container
-                .section-articles__title-container
-                    h2.section-articles__title-link #{article.title} 
-                    span.section-articles__span #{article.span}
-                a.section-articles__link(href=`${prefix}${article.url}`)
-                    if (i === 0)
-                        img.section-articles__img(src=`${prefix}img/chevron_left-24px.svg`)
-                        -i++; 
-                    else 
-                        img.section-articles__img(src=`${prefix}img/chevron_right-24px.svg`)
-                        -i--;
+        include ../components/section-articles.pug

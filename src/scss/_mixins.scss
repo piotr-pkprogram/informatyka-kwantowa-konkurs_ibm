@@ -1,0 +1,17 @@
+@mixin position($position, $top: null, $bottom: null, $left: null, $right: null) {
+    position: $position;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+}
+
+@mixin size($height, $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin menu-features {
+    mix-blend-mode: normal;
+    border: 1px solid #000000;
+}

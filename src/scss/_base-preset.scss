@@ -1,9 +1,14 @@
 @layer base {
+    *,
+    *::after,
+    *::before {
+        @apply box-border z-0 m-0 p-0;
+    }
     h1 {
-        @apply block text-3xl font-bold mt-3 mb-3;
+        @apply block text-3xl font-bold;
     }
     h2 {
-        @apply block text-2xl font-bold mt-3 mb-3;
+        @apply block text-2xl font-bold;
     }
     hr {
         @apply block border box-border mt-2 mb-2 text-gray-400;

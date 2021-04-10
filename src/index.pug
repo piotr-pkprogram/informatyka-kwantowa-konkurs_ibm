@@ -9,21 +9,16 @@ block variables
     -const url = '';
     -const sectionTitle = 'Informatka kwantowa dla każdego';
     -const sectionSpan = '';
-    -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej',  Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', Section('Wprowadzenie', 'introdaction.html')), new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introdaction.html'))];
+    -const articles = [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej',  Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', Section('Wprowadzenie', 'introdaction.html')), new Article('Algorytmy', 'quantum_algorithms', 'kwantowe', Section('Wprowadzenie', 'introdaction.html'))];
     -let i = 0;
  
 block main    
     include ./components/title-container     
     .section-articles   
-        each article in articles
-            .section-articles__link-article-container
-                .section-articles__title-container
-                    h2.section-articles__title-link #{article.title} 
-                    span.section-articles__span #{article.span}
-                a.section-articles__link(href=`${prefix}${article.url}/${article.sections[0].url}`)
-                    if (i === 0)
-                        img.section-articles__img(src=`${prefix}img/chevron_left-24px.svg`)
-                        -i++; 
-                    else 
-                        img.section-articles__img(src=`${prefix}img/chevron_right-24px.svg`)
-                        -i--;
+        include ./components/section-articles.pug
+        .section-articles__link-article-container.section-articles__link-article-container--right.section-articles__link-article-container--sources
+            .section-articles__title-container
+                h2.section-articles__title-link Źródła
+                span.section-articles__span 
+            a.section-articles__link.section-articles__link--right(href=`${prefix}subpages/sources.html`)
+                img.section-articles__img.section-articles__img--right( src=`${prefix}img/chevron_right-24px.svg`)

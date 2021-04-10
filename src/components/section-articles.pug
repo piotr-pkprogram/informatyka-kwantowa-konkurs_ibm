@@ -1,0 +1,17 @@
+each article in articles
+    if (i === 0)
+        .section-articles__link-article-container
+            .section-articles__title-container
+                h2.section-articles__title-link #{article.title} 
+                span.section-articles__span #{article.span}
+            a.section-articles__link(href=`${prefix}${article.url}/${article.sections[0].url}`)
+                img.section-articles__img( src=`${prefix}img/chevron_left-24px.svg`) 
+        -i++;
+    else 
+        .section-articles__link-article-container.section-articles__link-article-container--right
+            .section-articles__title-container
+                h2.section-articles__title-link #{article.title} 
+                span.section-articles__span.section-articles__span--right #{article.span}
+            a.section-articles__link.section-articles__link--right(href=`${prefix}${article.url}/${article.sections[0].url}`)
+                img.section-articles__img.section-articles__img--right( src=`${prefix}img/chevron_right-24px.svg`)
+        -i--;
