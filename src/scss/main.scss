@@ -12,7 +12,7 @@
     }
     
     main {
-        @apply grid;
+        @apply grid relative;
         margin-top: 13.5vh;
         @media (min-width: 972px) {
             @apply mt-0;
@@ -168,7 +168,7 @@
     }
     
     .section-articles {
-        @apply border-t-3 border-b-3 grid gap-6 p-2 pt-3 pb-3 mt-3 border-white;
+        @apply border-t-3 grid gap-6 p-2 pt-3 pb-3 mt-3 border-white;
         @media (min-width: 690px) {
             @apply gap-3;
         }
@@ -220,7 +220,7 @@
     
     .footer {
         &__link {
-            @apply grid grid-cols-2 justify-center items-center gap-1 p-1;
+            @apply grid grid-cols-2 justify-center items-center gap-1 p-1 border-t-3 border-txmain;
         }
         &__logo {
             @apply w-24 justify-self-end max-w-44;

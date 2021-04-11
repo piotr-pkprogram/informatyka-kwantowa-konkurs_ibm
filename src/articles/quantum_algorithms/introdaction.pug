@@ -11,7 +11,8 @@ block variables
     -const article = new Article('Algorytmy kwantowe', 'quantum_algorithms', '', Section('Wprowadzenie', 'introdaction.html'), Section('Algorytm Deutscha-Jozsy', 'deutscha-jozsy-algorithm.html'));
 
 block main
-    include ../../components/aside.pug
-    article.article-container
-        include:markdown-it ./markdown/introdaction.md    
+    .article-and-menu
+        include ../../components/aside.pug
+        article.article-container
+            include:markdown-it ./markdown/introdaction.md    
     

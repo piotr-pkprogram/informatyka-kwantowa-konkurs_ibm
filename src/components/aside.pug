@@ -1,5 +1,7 @@
-include ./title-container.pug
 aside.navigation-aside
+    button.navigation-aside__open-btn Menu
+        img.navigation-aside__img(src=`${prefix}img/sort.svg`)
+    hr
     ul.navigation-aside__list
         each section in article.sections
             li.navigation-aside__list-element 
