@@ -8,12 +8,12 @@ Jak działa komputer kwantowy. Żeby łatwiej było ci to zrozumieć najpierw pr
 
 albo zamieniając to na liczba razy jakaś potęga 10:
 
-(1 *103) + (2* 102) + (4 *101) + (5* 100).
+(1 * 103) + (2* 102) + (4 * 101) + (5 * 100).
 
 W systemie binarnym natomiast liczba 1245 wyglądała by tak 10011011101. Jak w takim razie można by było ją rozpisać w systemie binarnym?
 Już pokazuje:
 
-1245 = (1 *210) + (0* 29) + (0 *28) + (1* 27) + (1*26) + (0*25) + (1*24) + (1*23) + (1*22) + (0*21) + (1*20)  
+1245 = (1 * 210) + (0 * 29) + (0 * 28) + (1 * 27) + (1 * 26) + (0 * 25) + (1 * 24) + (1 * 23) + (1 * 22) + (0 * 21) + (1 * 20)  
 
 W ten sam sposób można zapisać także obrazu, litery, dźwięk, inne liczby, czy znaki interpunkcyjne. W zwykłym komputerze wszystkie informacje są reprezentowane jako ciągi 0 i 1 (inaczej ciągi binarne ).
 Komputer kwantowy jest oparty o tą samą ideę tyle, że zamiast bitów używa się w nim qubitów,  czyli rozszerzonego bitu opracowanego na podstawie zasad mechaniki kwantowej. Później powiemy sobie co potrafią robić qubity i jak to robią oraz wspomnimy sobie o kwantach.  

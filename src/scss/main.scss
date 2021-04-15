@@ -143,7 +143,7 @@
     }
     
     .title-container {
-        @apply h-80 justify-items-center grid grid-rows-2 p-1;
+        @apply h-98 justify-items-center grid grid-rows-2 p-1;
         @media (min-width: 972px) {
             @include size(540px, 100%)
         }

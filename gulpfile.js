@@ -12,6 +12,7 @@ const minifyJs = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
 const htmlmin = require('gulp-htmlmin');
+const replace = require('gulp-replace');
 
 compileSass.compiler = require('node-sass');
 
@@ -47,6 +48,8 @@ const buildSubpages = () =>
 const buildArticles = () =>
     src('./src/articles/**/*.pug')
     .pipe(pug())
+    .pipe(replace('~^', '<sup>'))
+    .pipe(replace('~~', '</sup>'))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest('./dist/articles'));
 

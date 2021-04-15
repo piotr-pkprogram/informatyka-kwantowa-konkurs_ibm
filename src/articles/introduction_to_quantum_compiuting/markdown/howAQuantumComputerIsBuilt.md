@@ -9,7 +9,7 @@ Oto jest grafika która przedstawia przykładowy komputer kwantowy :
 [Źródło grafiki](https://www.ibm.com/quantum-computing/_nuxt/img/a546ac8.svg?target=_blank)
 
 1. Wzmacniacz sygnału Qubitów
-Jeden z dwóch stopni wzmacniających, który jest schładzany do temperatury 4 kelwinów, czyli około -269.15oC.
+Jeden z dwóch stopni wzmacniających, który jest schładzany do temperatury 4 kelwinów, czyli około -269.15~^o~~C.
 
 2. Wejściowe linie mikrofalowe
 Tłumienie szumu termicznego jest stosowane na każdym etapie zachodzącym w chłodziarce w celu ochrony qubitów podczas procesu wysyłania sygnałów sterujących i odczytowych do procesora.
@@ -27,4 +27,4 @@ Wewnątrz osłony magnetycznej wychwytują one i wzmacniają sygnały odczytu pr
 Procesor kwantowy znajduje się w środku osłony chroniącej go przed promieniowaniem elektromagnetycznym, aby zachował on swoją jakość.
 
 7. Komora mieszania
-Znajduje ona się w najniższej części chłodziarki i odpowiada za zapewnienie niezbędnej mocy chłodniczej do obniżenia temperatury procesora oraz związanych z nim komponentów do 15 mili kelwinów, czyli -273oC - to mniej niż w próżni.
+Znajduje ona się w najniższej części chłodziarki i odpowiada za zapewnienie niezbędnej mocy chłodniczej do obniżenia temperatury procesora oraz związanych z nim komponentów do 15 mili kelwinów, czyli -273~^o~~C - to mniej niż w próżni.

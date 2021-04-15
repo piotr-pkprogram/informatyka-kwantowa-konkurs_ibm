@@ -19,4 +19,10 @@
     ol {
         @apply block list-decimal mt-4 mb-4;
     }
+    table {
+        @apply table mt-2 mb-2 w-full;
+    }
+    td {
+        @apply border-2 border-txmain p-3;
+    }
 }

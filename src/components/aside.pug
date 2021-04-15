@@ -1,8 +1,16 @@
+-let j = 0;
+
 aside.navigation-aside
     button.navigation-aside__open-btn Menu
         img.navigation-aside__img(src=`${prefix}img/sort.svg`)
     hr
     ul.navigation-aside__list
         each section in article.sections
-            li.navigation-aside__list-element 
-                a.navigation-aside__link(href=`./${section.url}`) #{section.title}
+            if (j === clickedLink)
+                li.navigation-aside__list-element.navigation-aside__list-element--clicked 
+                        a.navigation-aside__link(href=`./${section.url}`) #{section.title}
+                -j++;
+            else 
+                li.navigation-aside__list-element 
+                    a.navigation-aside__link(href=`./${section.url}`) #{section.title}
+                -j++;
