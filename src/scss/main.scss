@@ -3,6 +3,7 @@
     @tailwind utilities;
     @import './_base-preset.scss';
     @import './_mixins.scss';
+    @import './animations/_menuAnimation.scss';
     body {
         @apply bg-steel-900 text-txmain relative w-full;
     }
@@ -52,6 +53,13 @@
         }
         &__menu {
             @apply border-t-1.5 border-txmain p-0.5 pl-6 pr-6;
+        }
+
+        &--fixed {
+            animation-name: menuAnimation;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+
         }
     }
     

@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+    important: true,
     purge: [],
     presets: [],
     darkMode: false, // or 'media' or 'class'
@@ -199,6 +200,8 @@ module.exports = {
             ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
             pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             bounce: 'bounce 1s infinite',
+            hidden: 'hidden 1s both',
+            appear: 'appear 1s both',
         },
         backdropBlur: (theme) => theme('blur'),
         backdropBrightness: (theme) => theme('brightness'),
@@ -612,6 +615,22 @@ module.exports = {
                     animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
                 },
             },
+            hidden: {
+                '0%': {
+                    opacity: 1
+                },
+                '100%': {
+                    opacity: 0
+                }
+            },
+            appear: {
+                '0%': {
+                    opacity: 0
+                },
+                '100%': {
+                    opacity: 1
+                }
+            }
         },
         letterSpacing: {
             tighter: '-0.05em',

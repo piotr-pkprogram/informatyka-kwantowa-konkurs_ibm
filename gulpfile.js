@@ -72,13 +72,17 @@ const bundleSass = () =>
 
 
 const bundleJs = () =>
-    src('./src/js/**/*.js')
+    src([
+        './src/js/animations/*.js',
+        './src/js/functions/*.js',
+        './src/js/main.js'
+    ])
     .pipe(sourceMaps.init())
+    .pipe(concat('main.js'))
     .pipe(babel({
         presets: ['@babel/env']
     }))
     .pipe(minifyJs())
-    .pipe(concat('main.js'))
     .pipe(sourceMaps.write('./'))
     .pipe(dest('dist/js'));
 
@@ -91,6 +95,7 @@ const devWatch = () => {
     watch('./src/articles/**/*.md', buildArticles);
     watch('./src/subpages/**/*.pug', buildSubpages);
     watch('./src/components/**/*.pug', series(buildIndex, buildSubpages, buildArticles));
+    watch('./src/_layout_.pug', series(buildIndex, buildSubpages, buildArticles));
     watch('./src/scss/**/*.scss', bundleSass);
     watch('./tailwind.config.js', bundleSass);
     watch('./src/js/**/*.js', series(bundleJs, moveJsWebshim));
@@ -146,13 +151,17 @@ const prodBundleSass = () =>
 
 
 const prodBundleJs = () =>
-    src('./src/js/**/*.js')
+    src([
+        './src/js/animations/*.js',
+        './src/js/functions/*.js',
+        './src/js/main.js'
+    ])
     .pipe(sourceMaps.init())
+    .pipe(concat('main.js'))
     .pipe(babel({
         presets: ['@babel/env']
     }))
     .pipe(minifyJs())
-    .pipe(concat('main.js'))
     .pipe(sourceMaps.write('./'))
     .pipe(dest('docs/js'));
 

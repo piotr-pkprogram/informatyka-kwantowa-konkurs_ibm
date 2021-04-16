@@ -1,0 +1,9 @@
+@keyframes menuAnimation {
+    0% {
+        @apply transform;
+        --tw-translate-y: -176px;
+    }
+    100% {
+        @apply transform translate-y-0;
+    }
+}
