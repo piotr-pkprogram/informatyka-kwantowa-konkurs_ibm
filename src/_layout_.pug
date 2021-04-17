@@ -22,11 +22,12 @@ html
         //- Add your site or application content here
         script(src=`${prefix}js-webshim/minified/polyfiller.js`)
         //- script(src='https://www.google-analytics.com/analytics.js')
-    body
+    body 
         include ./components/header
         include ./components/phone-header
         main 
             include ./components/title-container.pug
             block main
         include ./components/footer.pug
+        include ./components/buttonTop.pug 
         script(src=`${prefix}js/main.js`)

@@ -62,7 +62,6 @@ const bundleSass = () =>
     ]))
     .pipe(autoprefixer({
         browsers: Autoprefixer,
-        cascade: false,
         grid: "autoplace"
     }))
     .pipe(minifyCss())

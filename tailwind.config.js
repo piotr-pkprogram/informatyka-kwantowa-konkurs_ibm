@@ -202,6 +202,7 @@ module.exports = {
             bounce: 'bounce 1s infinite',
             hidden: 'hidden 1s both',
             appear: 'appear 1s both',
+            menuAnimation: 'menuAnimation 1s cubic-bezier(0.23, 1, 0.320, 1) both'
         },
         backdropBlur: (theme) => theme('blur'),
         backdropBrightness: (theme) => theme('brightness'),
@@ -629,6 +630,14 @@ module.exports = {
                 },
                 '100%': {
                     opacity: 1
+                }
+            },
+            menuAnimation: {
+                '0%': {
+                    transform: 'translateY(-176px)'
+                },
+                '100%': {
+                    transform: 'translateY(0)'
                 }
             }
         },

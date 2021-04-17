@@ -3,6 +3,10 @@
 window.onload = function() {
     targetLinks();
     window.addEventListener('scroll', menuAnimation);
+    window.addEventListener('scroll', appearButtonTop);
 
-    articlesNavigationBtn.addEventListener('click', openArticlesNavigation);
+    if (articlesNavigationList != null)
+        articlesNavigationBtn.addEventListener('click', openArticlesNavigation);
+
+    buttonTop.addEventListener('click', clickButtonTop);
 }

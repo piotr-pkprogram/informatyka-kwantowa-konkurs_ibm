@@ -1,0 +1,8 @@
+.buttonTop {
+    @apply fixed bottom-2 right-2 p-2 bg-txmain rounded-full border-steel-900 border-2 transition-opacity hidden opacity-0;
+    @media (min-width: 972px) {
+        &:hover {
+            @apply opacity-75;
+        }
+    }
+}
