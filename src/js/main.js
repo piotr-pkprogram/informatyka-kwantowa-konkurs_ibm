@@ -1,6 +1,15 @@
 //@ts-nocheck
 
 window.onload = function() {
+    console.log(history.state);
+
+    document.body.addEventListener('click', e => {
+        if (e.target.matches('[data-link]')) {
+            e.preventDefault();
+            navigateTo(e.target.href);
+        }
+    });
+
     targetLinks();
     window.addEventListener('scroll', menuAnimation);
     window.addEventListener('scroll', appearButtonTop);

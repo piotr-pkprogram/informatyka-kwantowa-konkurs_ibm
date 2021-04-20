@@ -8,9 +8,9 @@ aside.navigation-aside
         each section in article.sections
             if (j === clickedLink)
                 li.navigation-aside__list-element.navigation-aside__list-element--clicked 
-                        a.navigation-aside__link(href=`./${section.url}`) #{section.title}
+                        a.navigation-aside__link(href=`./${section.url}` data-link) #{section.title}
                 -j++;
             else 
                 li.navigation-aside__list-element 
-                    a.navigation-aside__link(href=`./${section.url}`) #{section.title}
+                    a.navigation-aside__link(href=`./${section.url}` data-link) #{section.title}
                 -j++;

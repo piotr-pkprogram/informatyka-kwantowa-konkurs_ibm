@@ -1,16 +1,16 @@
 header.header
     .header__logo
-        a.header__link(href=`${prefix}index.html`)
+        a.header__link(href=`${prefix}index.html` data-link)
             img.header__logo-img(src=`${prefix}img/main_logo.png`)
             .header__title Informatyka Kwantowa dla każdego
                 span.header__span-title konkurs IBM 
     .header__menu
         ul.header__menu-list 
             li.header__menu-list-element.header__menu-list-element--first
-                a.header__menu-link(href=`${prefix}subpages/for_organisers.html`) Dla Organizatorów
+                a.header__menu-link(href=`${prefix}subpages/for_organisers.html` data-link) Dla Organizatorów
             li.header__menu-list-element
-                a.header__menu-link(href=`${prefix}index.html`) Informaty kwantowa 
+                a.header__menu-link(href=`${prefix}index.html` data-link) Informaty kwantowa 
             li.header__menu-list-element
-                a.header__menu-link(href=`${prefix}subpages/about_me.html`) O Mnie
+                a.header__menu-link(href=`${prefix}subpages/about_me.html` data-link) O Mnie
             li.header__menu-list-element
                 a.header__menu-link(href='https://github.com/Piotr385/informatyka-kwantowa-konkurs_ibm' target='_blank' rel='noreferrer noopener') Repozytorium

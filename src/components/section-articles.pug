@@ -4,7 +4,7 @@ each article in articles
             .section-articles__title-container
                 h2.section-articles__title-link #{article.title} 
                 span.section-articles__span #{article.span}
-            a.section-articles__link(href=`${prefix}${article.url}/${article.sections[0].url}`)
+            a.section-articles__link(href=`${prefix}${article.url}/${article.sections[0].url}` data-link)
                 img.section-articles__img( src=`${prefix}img/chevron_left-24px.svg`) 
         -i++;
     else 
@@ -12,6 +12,6 @@ each article in articles
             .section-articles__title-container
                 h2.section-articles__title-link #{article.title} 
                 span.section-articles__span.section-articles__span--right #{article.span}
-            a.section-articles__link.section-articles__link--right(href=`${prefix}${article.url}/${article.sections[0].url}`)
+            a.section-articles__link.section-articles__link--right(href=`${prefix}${article.url}/${article.sections[0].url}` data-link)
                 img.section-articles__img.section-articles__img--right( src=`${prefix}img/chevron_right-24px.svg`)
         -i--;

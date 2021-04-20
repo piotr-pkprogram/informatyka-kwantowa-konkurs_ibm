@@ -42,9 +42,9 @@ class AbstractLinkArticlesView extends AbstractView {
      * @param {string} title
      * @param {string} span
      * @param {string} url
-     * @param {string} firstSectionTitle
+     * @param {string} firstSectionUrl
      */
-    createArticle(title, span, url, firstSectionTitle) {
+    createArticle(title, span, url, firstSectionUrl) {
 
         if (this.i === 0) {
 
@@ -54,7 +54,7 @@ class AbstractLinkArticlesView extends AbstractView {
                 <h2 class="section-articles__title-link"> ${title} </h2>
                 <span class="section-articles__span"> ${span} </span>
             </div>
-            <a class="section-articles__link" href="${this.prefix}${url}/${firstSectionTitle}">
+            <a class="section-articles__link" href="${this.prefix}${url}/${firstSectionUrl}">
                 <img src="${this.prefix}img/chevron_right-24px.svg" class="section-articles__img"></img>
             </a>`;
 
@@ -68,7 +68,7 @@ class AbstractLinkArticlesView extends AbstractView {
                 <h2 class="section-articles__title-link"> ${title} </h2>
                 <span class="section-articles__span section-articles__span--right"> ${span} </span>
             </div>
-            <a class="section-articles__link section-articles__link--right" href="${this.prefix}${url}/${firstSectionTitle}">
+            <a class="section-articles__link section-articles__link--right" href="${this.prefix}${url}/${firstSectionUrl}">
                 <img src="${this.prefix}img/chevron_right-24px.svg" class="section-articles__img section-articles__img--right"></img>
             </a>`;
 

@@ -14,7 +14,7 @@ class AbstractSectionsView extends AbstractView {
         this.article = article;
     }
 
-    getHtml() {
+    getHtml(pathArticleValue) {
         const html = document.createDocumentFragment();
 
         const titleContainer = document.createElement('div');
@@ -52,7 +52,7 @@ class AbstractSectionsView extends AbstractView {
         const articleContainer = document.createElement('article');
         articleContainer.classList.add('article-container');
 
-        this.getArticleValue();
+        this.getArticleValue(pathArticleValue);
         articleContainer.innerHTML = this.articleValue;
 
         articleAndMenu.appendChild(navigationAside);
@@ -76,11 +76,17 @@ class AbstractSectionsView extends AbstractView {
         return sectionLink;
     }
 
-    async getArticleValue(articleName, sectionName) {
+    async getArticleValue( /* @type {string} */ pathArticleValue) {
+
+        let section = await this.article.sections.find(section => section.linkValue === pathArticleValue.replace('.html', '.md'));
+
+        if (!section) {
+            section = this.article.sections[0];
+        }
 
         const params = new URLSearchParams({
-            articleName,
-            sectionName
+            articleName: this.article.url,
+            sectionName: section.linkValue
         });
 
         const url = `/articleValue?${ params.toString() }`;
@@ -97,7 +103,7 @@ class AbstractSectionsView extends AbstractView {
                 throw new Error(`Wystąpił błąd`);
             });
 
-        this.articleValue = articleValue;
 
+        this.articleValue = articleValue;
     }
 }
