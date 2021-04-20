@@ -8,7 +8,7 @@ const tailwindcss = require('tailwindcss');
 const tailwindcssConfig = require('./tailwind.config.js');
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
-const minifyJs = require('gulp-uglify');
+const minifyJs = require('gulp-terser');
 const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
 const htmlmin = require('gulp-htmlmin');
@@ -22,6 +22,10 @@ const Autoprefixer = [
     "not IE 11",
     "maintained node versions"
 ]
+
+const moveMarkdown = () =>
+    src('./src/articles/**/*.md')
+    .pipe(dest('app/'));
 
 // devBuild
 const moveJsWebshim = () =>
@@ -74,21 +78,23 @@ const bundleJs = () =>
     src([
         './src/js/animations/*.js',
         './src/js/functions/*.js',
+        './src/js/views/AbstractView.js',
+        './src/js/views/ArticleAndSection.js',
+        './src/js/views/AbstractLinkArticlesView.js',
+        './src/js/views/AbstractSectionView.js',
+        './src/js/singlePageApplication.js',
         './src/js/main.js'
     ])
     .pipe(sourceMaps.init())
-    .pipe(concat('main.js'))
-    .pipe(babel({
-        presets: ['@babel/env']
-    }))
     .pipe(minifyJs())
+    .pipe(concat('main.js'))
     .pipe(sourceMaps.write('./'))
     .pipe(dest('dist/js'));
 
 const devWatch = () => {
-    browserSync.init({
-        server: "./dist"
-    });
+    // browserSync.init({
+    //     server: "./dist"
+    // });
     watch('./src/index.pug', buildIndex);
     watch('./src/articles/**/*.pug', buildArticles);
     watch('./src/articles/**/*.md', buildArticles);
@@ -153,13 +159,18 @@ const prodBundleJs = () =>
     src([
         './src/js/animations/*.js',
         './src/js/functions/*.js',
+        './src/js/views/AbstractView.js',
+        './src/js/views/ArticleAndSection.js',
+        './src/js/views/AbstractLinkArticlesView.js',
+        './src/js/views/AbstractSectionView.js',
+        './src/js/singlePageApplication.js',
         './src/js/main.js'
     ])
     .pipe(sourceMaps.init())
     .pipe(concat('main.js'))
-    .pipe(babel({
-        presets: ['@babel/env']
-    }))
+    // .pipe(babel({
+    //     presets: ['@babel/env']
+    // }))
     .pipe(minifyJs())
     .pipe(sourceMaps.write('./'))
     .pipe(dest('docs/js'));
@@ -167,3 +178,4 @@ const prodBundleJs = () =>
 exports.devWatch = devWatch;
 exports.devBuild = series(buildIndex, buildSubpages, buildArticles, bundleSass, bundleJs, moveImg, moveJsWebshim);
 exports.prodBuild = series(prodBuildIndex, prodBuildSubpages, prodBuildArticles, prodBundleSass, prodBundleJs, prodMoveImg, prodMoveJsWebshim);
+exports.moveMarkdown = moveMarkdown;

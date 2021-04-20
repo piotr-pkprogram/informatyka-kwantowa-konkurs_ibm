@@ -202,7 +202,13 @@ module.exports = {
             bounce: 'bounce 1s infinite',
             hidden: 'hidden 1s both',
             appear: 'appear 1s both',
-            menuAnimation: 'menuAnimation 1s cubic-bezier(0.23, 1, 0.320, 1) both'
+            menuAnimation: 'menuAnimation 1s cubic-bezier(0.23, 1, 0.320, 1) both',
+            burgerElement1: 'animateBurgerElement1 .25s linear both',
+            burgerElement3: 'animateBurgerElement3 .25s linear both',
+            unAnimateBurgerElement1: 'unAnimateBurgerElement1 .25s linear both',
+            unAnimateBurgerElement3: 'unAnimateBurgerElement3 .25s linear both',
+            appearBurgerElement2: 'appear .125s linear both',
+            hiddenBurgerElement2: 'hidden .125s linear both',
         },
         backdropBlur: (theme) => theme('blur'),
         backdropBrightness: (theme) => theme('brightness'),
@@ -639,7 +645,53 @@ module.exports = {
                 '100%': {
                     transform: 'translateY(0)'
                 }
+            },
+            animateBurgerElement1: {
+                '0%': {
+                    transform: 'translateY(0) rotate(0)'
+                },
+                '50%': {
+                    transform: 'translateY(12.5px) rotate(0)'
+                },
+                '100%': {
+                    transform: 'translateY(12.5px) rotate(45deg)'
+                }
+            },
+            animateBurgerElement3: {
+                '0%': {
+                    transform: 'translateY(0) rotate(0)'
+                },
+                '50%': {
+                    transform: 'translateY(-12.5px) rotate(0)'
+                },
+                '100%': {
+                    transform: 'translateY(-12.5px) rotate(-45deg)'
+                }
+            },
+            unAnimateBurgerElement1: {
+                '0%': {
+                    transform: 'translateY(12.5px) rotate(45deg)'
+                },
+                '50%': {
+                    transform: 'translateY(12.5px) rotate(0)'
+                },
+                '100%': {
+                    transform: 'translateY(0) rotate(0)'
+                }
+            },
+            unAnimateBurgerElement3: {
+                '0%': {
+                    transform: 'translateY(-12.5px) rotate(-45deg)'
+                },
+                '50%': {
+                    transform: 'translateY(-12.5px) rotate(0)'
+                },
+                '100%': {
+                    transform: 'translateY(0) rotate(0)'
+                }
             }
+
+
         },
         letterSpacing: {
             tighter: '-0.05em',
