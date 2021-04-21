@@ -1,4 +1,4 @@
-# Czym jest qubit?
+## Czym jest qubit?
 
 Zacznijmy może od czegoś prostszego, czyli tego czym jest qubit. Wiesz już pewnie co to jest bit, ale na wszelki wypadek przypomnę. Jest to najmniejsza jednostka informacji, która może przyjmować tylko wartości 0 albo 1. Qubit natomiast jest kwantowym odpowiednikiem bitu. Można go sobie wyobrazić jako taką sferę, która na swoich biegunach ma klasyczne wartości bitu, 0 i 1.  
 

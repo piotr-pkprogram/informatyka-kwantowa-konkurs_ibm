@@ -1,12 +1,12 @@
-# Zamiana wartości stanów qubitów - SWAP i CS SWAP
+## Zamiana wartości stanów qubitów - SWAP i CS SWAP
 
-Bramki SWAP i CS SWAP służą do zamiany stanów dwóch qubitów. Bramka SWAP, którą widzisz poniżej, zamienia stan górnego qubita na stan dolnego i na odwrót. 
+Bramki SWAP i CS SWAP służą do zamiany stanów dwóch qubitów. Bramka SWAP, którą widzisz poniżej, zamienia stan górnego qubita na stan dolnego i na odwrót.
 
 ![bramka swap](../../img/swap_gate.svg)
 
 O to przykład:
 
-![przykład SWAP](../../img/przykład_SWAP.png) 
+![przykład SWAP](../../img/przykład_SWAP.png)
 
 Tutaj górny qubit jest w stanie ![stan 0](../../img/stan_0.svg?display=inline), qubit dolny ma stan ![stan 1](../../img/stan_1.svg?display=inline). Po użyciu bramki SWAP, te stany się zamienią ze sobą miejscami. Zobazc niżej:
 

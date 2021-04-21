@@ -1,4 +1,4 @@
-# Czym jest komputer kwantowy i jak działa?
+## Czym jest komputer kwantowy i jak działa?
 
 Komputer kwantowy to odpowiednik zwykłego komputer, który używasz na co dzień, tylko że opracowany na podstawie zasad mechaniki kwantowej, która wykorzystuje między innymi takie zjawiska jak [splątanie kwantowe](./whatIsAQuantumEntanglement.html) czy [superpozycje qubitów](./whatIsAQubit.html), o których mówiłem wcześniej. Daje mu to o wiele większe możliwości obliczeniowe niż zwykłemu komputerowi, ale przejdźmy do rzeczy.
 

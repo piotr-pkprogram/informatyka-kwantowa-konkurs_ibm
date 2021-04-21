@@ -57,13 +57,13 @@
     @media (min-width: 1700px) {
         width: 1077px;
     }
-    &>h1 {
+    &>h2 {
         @apply w-full mb-3;
     }
     &>p {
         @apply w-full mt-2;
     }
-    &>h2 {
+    &>h3 {
         @apply w-full mt-2;
     }
     & a {

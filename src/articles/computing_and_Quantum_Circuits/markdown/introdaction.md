@@ -1,4 +1,4 @@
-# Wprowadzenie
+## Wprowadzenie
 
 Żeby zacząć w ogóle temat obliczeń i obwodów kwantowych najpierw musisz wiedzieć jak powinien być zbudowany każdy obwód. Otóż każdy obwód powinien się składać z wejścia, w którym wprowadzamy nasze dane wejściowe, operacji, które są wykonywane za pomocą tzw. "Bramek" i wyjścia, które zwraca nam dane, które są wynikiem przeprowadzonych operacji. Oto przykładowy obwód kwantowy:
 

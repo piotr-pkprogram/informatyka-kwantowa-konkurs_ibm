@@ -1,4 +1,4 @@
-# Faza kwantowa i kąt fazowy qubitu
+## Faza kwantowa i kąt fazowy qubitu
 
 Jak dobrze pamiętasz, w dziale [Wprowadzenie do Informatyki Kwantowej](../introduction_to_quantum_compiuting/whatIsTheQuantumCompiuting.html) tłumaczyłem [co to jest kubit](../introduction_to_quantum_compiuting/whatIsAQubit.html) i wspomniałem tam, że qubit można sobie wyobrazić jako taką sferę, która ma na swoich biegunach 0 i 1, a pomiędzy tymi liczbami znajdują się jej super pozycje. Powiedzieliśmy już sobie o bramce NOT i bramce Hadamarda, więc umiemy już tworzyć superpozycję. Użycie bramki Hadamarda na qubicie, który jest w stanie podstawowym powodowało, że nagle dostawał on superpozycję, w której miał stan ![stan 0](../../img/stan_0.svg?display=inline) i ![stan 1](../../img/stan_1.svg?display=inline) w tym samym czasie. Mając już qubit w superpozycji możemy przesuwać jego stan o tzw. kąt fazowy. Co to jest kąt fazowy zapytasz. Popatrz na grafikę poniżej i analizuj dokładnie sferę Blocha, podczas czytania tego co teraz piszę.
 

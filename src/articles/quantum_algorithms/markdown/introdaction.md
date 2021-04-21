@@ -1,4 +1,4 @@
-# Wprowadzenie
+## Wprowadzenie
 
 Często Algorytmy kwantowa opisuje się jako o wiele szybsze niż klasyczne algorytmy. Wyjaśnia się to najczęściej tym, że w obliczeniach kwantowych możemy jako wejście wykorzystać wszystkie możliwe superpozycje wejścia, dzięki czemu zamiast wykonywać algorytm na jednym wejściu, tak jak to się robi w klasycznych algorytmach, wykonujemy go na wszystkich możliwych wejściach w tym samym czasie. Najczęściej opis algorytmu kwantowego kończy się w tym miejscu, jednak co się stanie  jeśli dokonamy pomiaru takiego algorytmu, zwróci nam on losowo wybrany wynik czy co. Sztuka tworzenia algorytmów kwantowych polega na tym, żeby umieć stworzyć algorytm, który zwróci nam dane mogące posłużyć później do robienia lub rozwiązania czegoś konkretnego. Nie każdy algorytm klasyczny można też przekształcić w algorytm kwantowy. Przekształcenie zwykłego algorytmu w algorytm kwantowy to nie jest po prostu kwantowe przyspieszenie go. Jest to raczej rzucenie nowego światła na problem używając idei obliczeń kwantowych. W tej sekcji przedstawię ci 3 algorytmy kwantowe i sprawdzę w jaki sposób w ich przypadku rozwiązuje się wszystkie problemy.
 

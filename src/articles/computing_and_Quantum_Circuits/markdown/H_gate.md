@@ -1,4 +1,4 @@
-# Tworzenie superpozycji i interferencji za pomocą bramki Hadamarda
+## Tworzenie superpozycji i interferencji za pomocą bramki Hadamarda
 
 Jeśli nie wiesz lub nie pamiętasz co to jest superpozycja to odsyłam cię do artykułu, w którym mówiłem [Co to jest kubit](../introduction_to_quantum_compiuting/whatIsAQubit.html) i wytłumaczyłem czym jest superpozycja. Otóż bramką, która tworzy superpozycję, jest bramka Hadamarda, w skrócie bramka H. Jeżeli qubit przejdzie przez bramkę Hadamarda to wejdzie on w superpozycję dwóch stanów podstawowych ![stan 0](../../img/stan_0.svg?display=inline) i ![stan 1](../../img/stan_1.svg?display=inline), a dokładniej będzie nimi w tym samym czasie. Co to oznacza. To oznacza, że qubit, który jest w stanie właśnie takiej super pozycji ma 50% na to, że przy pomiarze jego stanu będzie miał on stan ![stan 1](../../img/stan_1.svg?display=inline) i 50% szans na to, że będzie miał stan [stan 0](../../img/stan_0.svg?display=inline). Poniżej widzisz obwód z użyciem tej bramki bez zarejestrowania wyniku.
 

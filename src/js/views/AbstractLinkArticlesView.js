@@ -23,7 +23,7 @@ class AbstractLinkArticlesView extends AbstractView {
         </button>`;
 
         const sectionArticles = document.createElement('div');
-        sectionArticles.classList.add('.section-articles');
+        sectionArticles.classList.add('section-articles');
 
         this.articles.forEach(article => {
             const newArticle = this.createArticle(article.title, article.span, article.url, article.sections[0].url);
@@ -54,8 +54,8 @@ class AbstractLinkArticlesView extends AbstractView {
                 <h2 class="section-articles__title-link"> ${title} </h2>
                 <span class="section-articles__span"> ${span} </span>
             </div>
-            <a class="section-articles__link" href="${this.prefix}${url}/${firstSectionUrl}">
-                <img src="${this.prefix}img/chevron_right-24px.svg" class="section-articles__img"></img>
+            <a class="section-articles__link" href="${this.prefix}articles/${url}/${firstSectionUrl}" data-link>
+                <img src="${this.prefix}img/chevron_left-24px.svg" class="section-articles__img" data-img></img>
             </a>`;
 
             this.i++;
@@ -68,8 +68,8 @@ class AbstractLinkArticlesView extends AbstractView {
                 <h2 class="section-articles__title-link"> ${title} </h2>
                 <span class="section-articles__span section-articles__span--right"> ${span} </span>
             </div>
-            <a class="section-articles__link section-articles__link--right" href="${this.prefix}${url}/${firstSectionUrl}">
-                <img src="${this.prefix}img/chevron_right-24px.svg" class="section-articles__img section-articles__img--right"></img>
+            <a class="section-articles__link section-articles__link--right" href="${this.prefix}articles/${url}/${firstSectionUrl}" data-link>
+                <img src="${this.prefix}img/chevron_right-24px.svg" class="section-articles__img section-articles__img--right" data-img></img>
             </a>`;
 
             this.i--;

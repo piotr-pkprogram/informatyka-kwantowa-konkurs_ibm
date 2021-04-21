@@ -1,12 +1,16 @@
 //@ts-nocheck
 
 window.onload = function() {
-    console.log(history.state);
-
     document.body.addEventListener('click', e => {
         if (e.target.matches('[data-link]')) {
             e.preventDefault();
             navigateTo(e.target.href);
+        } else if (e.target.matches('[data-img]')) {
+            e.preventDefault();
+            const parent = e.target.parentNode;
+            const parentHref = parent.getAttribute('href');
+
+            navigateTo(parentHref);
         }
     });
 

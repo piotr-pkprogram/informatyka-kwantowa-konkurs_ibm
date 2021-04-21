@@ -1,4 +1,4 @@
-# Co to jest splątanie kwantowe?
+## Co to jest splątanie kwantowe?
 
 Splątanie kwantowe to wyjątkowy typ superpozycji, który może wystąpić tylko w układzie dwóch cząsteczek lub więcej. Dwie cząsteczki splątane ze sobą możemy traktować jako jeden obiekt kwantowy, zaraz powiem dlaczego. Załóżmy, że mamy układ dwóch cząsteczek A i B, które są ze sobą splątane na poziomie kwantowym. Jeśli zmienimy stan kwantowy cząsteczki A to w cząsteczce B zajdzie natychmiastowa zmiana stanu na ten sam co w cząsteczce A. Niestety przekaz tej informacji nie dzieje się szybciej niż prędkość światła, prędkość z jaką jest przekazywana taka informacja drugiej cząsteczce zachodzi z prędkością światła, ale w danym ośrodku. Zazwyczaj taka prędkość różni się lekko od prędkości światła w próżni, ale może ona też być jej równa.  
 

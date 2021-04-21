@@ -14,12 +14,12 @@ class AbstractSectionsView extends AbstractView {
         this.article = article;
     }
 
-    getHtml(pathArticleValue) {
+    async getHtml(pathArticleValue) {
         const html = document.createDocumentFragment();
 
         const titleContainer = document.createElement('div');
         titleContainer.classList.add('title-container');
-        titleContainer.innerHTML = `<h1 class="title-container__title">${this.article.sections[this.sectionIndex].title}</h1>
+        titleContainer.innerHTML = `<h1 class="title-container__title">${this.article.title} ${this.article.span}</h1>
         <button class="title-container__btn">
             <img src="${this.prefix}img/south_white_24dp.svg" class="title-container__arrow" alt=""/>
         </button>`;
@@ -31,19 +31,21 @@ class AbstractSectionsView extends AbstractView {
         navigationAside.classList.add('navigation-aside');
         const navigationAsideOpenBtn = document.createElement('button');
         navigationAsideOpenBtn.classList.add('navigation-aside__open-btn')
-        navigationAsideOpenBtn.innerHTML = `<img class="navigation-aside__img" src="${this.prefix}img/sort.svg" alt="" />`;
+        navigationAsideOpenBtn.innerHTML = `Zobacz inne sekcje <img class="navigation-aside__img" src="${this.prefix}img/sort.svg" alt="" />`;
         const hr = document.createElement('hr');
 
         const navigationAsideList = document.createElement('ul');
         navigationAsideList.classList.add('navigation-aside__list');
 
-        this.article.sections.map(({ title, url }) => {
+        const sectionLiElements = this.article.sections.map(({ title, url }) => {
             const newLinkSection = this.createLinkSection(title, url);
 
             return newLinkSection;
         });
 
-        this.article.sections.forEach(section => { navigationAsideList.appendChild(section); });
+        sectionLiElements[0].classList.add('navigation-aside__list-element--clicked');
+
+        sectionLiElements.forEach(section => { navigationAsideList.appendChild(section); });
 
         navigationAside.appendChild(navigationAsideOpenBtn);
         navigationAside.appendChild(hr);
@@ -52,7 +54,7 @@ class AbstractSectionsView extends AbstractView {
         const articleContainer = document.createElement('article');
         articleContainer.classList.add('article-container');
 
-        this.getArticleValue(pathArticleValue);
+        await this.getArticleValue(pathArticleValue);
         articleContainer.innerHTML = this.articleValue;
 
         articleAndMenu.appendChild(navigationAside);
@@ -91,18 +93,17 @@ class AbstractSectionsView extends AbstractView {
 
         const url = `/articleValue?${ params.toString() }`;
 
-        const articleValue = await fetch(url, { method: 'POST' })
+        const articleValue = await fetch(url, { method: 'GET' })
             .then(res => {
                 if (res.status != 200)
                     throw new Error('Wystąpił błąd');
                 else
                     return res.json();
             })
-            .then(json => Array.from(json.articleValue))
+            .then(json => json.articleValue)
             .catch(res => {
                 throw new Error(`Wystąpił błąd`);
             });
-
 
         this.articleValue = articleValue;
     }

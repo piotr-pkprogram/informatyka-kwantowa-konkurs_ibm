@@ -1,4 +1,4 @@
-# Bramki ROT
+## Bramki ROT
 
 Zacznijmy może od tego ile mamy takich bramek ROT. Istnieję 3 bramki ROT i każda z nich odpowiada jednej z osi sfery Blocha. Mamy :
 

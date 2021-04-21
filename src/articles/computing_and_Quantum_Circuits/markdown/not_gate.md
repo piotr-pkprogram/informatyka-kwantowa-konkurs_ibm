@@ -1,4 +1,4 @@
-# Bramka Not
+## Bramka Not
 
 Jeśli nie pamiętasz czym jest qubit to odsyłam cię [tutaj](../introduction_to_quantum_compiuting/whatIsAQubit.html). Dla przypomnienia kubit ma dwa stany podstawowe, czyli 0 i 1, które powinny być zapisane w ten sposób: ![stan 1](../../img/stan_1.svg?display=inline) i ![stan 0](../../img/stan_0.svg?display=inline) gdzie : ![stan 1 i 0](../../img/stan_0_i_1.svg?display=inline). I od teraz będę używał tego zapisu. Bramka Not to operacja, która neguje stan qubitu, inaczej odwraca go. Jest to najprostszy rodzaj bramki kwantowej, którą oznaczamy jako X. Na przykład jeśli nasz kubit ma stan ![stan 0](../../img/stan_0.svg?display=inline) to po użyci bramki not będzie on miał stan ![stan 1](../../img/stan_1.svg?display=inline).
 Poprawny zapis takiej operacji według wzoru, który pokazywałem we [Wprowadzeniu](./introdaction.html) wyglądał by tak:
