@@ -41,7 +41,7 @@
 }
 
 .article-container {
-    @apply flex justify-center flex-wrap p-2 mb-3 w-full;
+    @apply flex justify-center flex-wrap p-2 mb-3 w-full relative;
     @media (min-width: 610px) {
         @apply w-4/5 shadow-3xl;
     }
@@ -79,5 +79,11 @@
     }
     & img[src$='?display=inline'] {
         @apply mt-0;
+    }
+    & ul {
+        @apply ml-3;
+    }
+    & ol {
+        @apply ml-3;
     }
 }

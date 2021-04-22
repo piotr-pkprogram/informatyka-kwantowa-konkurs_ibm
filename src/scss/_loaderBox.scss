@@ -1,0 +1,6 @@
+.loaderBox {
+    @apply absolute w-full h-full justify-center z-10 bg-steel-900 hidden items-center;
+    &__loader {
+        @apply animate-spin h-18;
+    }
+}

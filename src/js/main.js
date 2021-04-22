@@ -17,6 +17,12 @@ window.onload = function() {
         }
     });
 
+    if (sectionButtons) {
+        sectionButtons.forEach(sectionButton => {
+            sectionButton.addEventListener('click', clickedSectionButtons);
+        });
+    }
+
     targetLinks();
     window.addEventListener('scroll', menuAnimation);
     window.addEventListener('scroll', appearButtonTop);

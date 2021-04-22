@@ -9,7 +9,7 @@ const fixedNavigationAside = () => {
     if (window.pageYOffset >= 497) {
         navigationAside.classList.add('fixed', 'top-48');
         navigationAside.style.width = navigationAsideWidth;
-        articleContainer.style.marginLeft = navigationAsideWidth;
+        articleContainer.style.marginLeft = parseInt(navigationAsideWidth + 5) + 'px';
     } else {
         articleContainer.style.marginLeft = '0';
         navigationAside.style.width = 'auto';

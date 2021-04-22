@@ -39,7 +39,7 @@ class AbstractSectionsView extends AbstractView {
 
         const sectionLiElements = this.article.sections.map(({ title, url }) => {
             const newLinkSection = this.createLinkSection(title, url);
- 
+
             return newLinkSection;
         });
 
@@ -54,8 +54,14 @@ class AbstractSectionsView extends AbstractView {
         const articleContainer = document.createElement('article');
         articleContainer.classList.add('article-container');
 
+        const loaderBox = `<div class="loaderBox">
+        <img src="${this.prefix}img/loading-process.svg" class="loaderBox__loader"></img>
+        <span class="loaderBox__span"></span>
+
+        </div>`
+
         await this.getArticleValue(pathArticleValue);
-        articleContainer.innerHTML = this.articleValue;
+        articleContainer.innerHTML = loaderBox + this.articleValue;
 
         articleAndMenu.appendChild(navigationAside);
         articleAndMenu.appendChild(articleContainer);
@@ -73,12 +79,12 @@ class AbstractSectionsView extends AbstractView {
     createLinkSection(title, url) {
         const sectionLink = document.createElement('li');
         sectionLink.classList.add('navigation-aside__list-element');
-        sectionLink.innerHTML = `<a class="navigation-aside__link" href="./${url}"> ${title} </a> `;
+        sectionLink.innerHTML = `<a class="navigation-aside__link" href="./${url}" data-link> ${title} </a> `;
 
         return sectionLink;
     }
 
-    async getArticleValue( /* @type {string} */ pathArticleValue) {
+    async getArticleValue( /** @type {string} */ pathArticleValue) {
 
         let section = await this.article.sections.find(section => section.linkValue === pathArticleValue.replace('.html', '.md'));
 

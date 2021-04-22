@@ -46,6 +46,9 @@ const substringOfHrefAttributes = (prefix) => {
 }
 
 const router = async( /** @type {string} */ locationPathNameBeforePushState) => {
+    if (locationPathNameBeforePushState === location.pathname)
+        return;
+
     const routes = [
         { path: '/', view: new AbstractLinkArticlesView('Informatyka kwantowa dla każdego', [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej', new Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html')), new Article('Algorytmy', 'quantum_algorithms', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html'))], './', 'Informatyka kwantowa dla każdego - konkurs IBM') },
         { path: '/index.html', view: new AbstractLinkArticlesView('Informatyka kwantowa dla każdego', [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej', new Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html')), new Article('Algorytmy', 'quantum_algorithms', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html'))], './', 'Informatyka kwantowa dla każdego - konkurs IBM') },
@@ -85,30 +88,75 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
         const pathArticleValue = location.pathname.slice(match.route.path.length);
         const articleContainer = document.querySelector('.article-container');
         const articleChildren = Array.from(articleContainer.children);
+        const loaderBox = articleContainer.querySelector('.loaderBox');
 
-        for (let i = 0; i < articleChildren.length; i++) {
+        articleContainer.setAttribute('style', 'height: 215px; overflow: hidden;')
+        loaderBox.classList.add('flex');
+        const loaderTimeOut = setTimeout(() => {
+            const spanMessage = loaderBox.querySelector('span');
+            spanMessage.innerText = 'Strona ładuje się dłużej niż zwykle. Proszę sprawdzić swoje połączenie z internetem.';
+
+        }, 5000);
+
+        for (let i = 1; i < articleChildren.length; i++) {
             articleChildren[i].remove();
         }
 
-        await view.getArticleValue(pathArticleValue);
-        articleContainer.innerHTML = articleContainer.innerHTML + view.articleValue;
+        try {
+            await view.getArticleValue(pathArticleValue);
+            articleContainer.innerHTML = articleContainer.innerHTML + view.articleValue;
+            clearTimeout(loaderTimeOut);
+            const loaderBox = articleContainer.querySelector('.loaderBox');
+
+            loaderBox.classList.remove('flex');
+
+            articleContainer.setAttribute('style', '');
+        } catch (e) {
+            const loaderBox = articleContainer.querySelector('.loaderBox');
+
+            const spanMessage = loaderBox.querySelector('span');
+            spanMessage.innerHTML = `Nie udało mi się połączyć z serwerem. Proszę sprawdź swoje połączenie z internetem i spróbuj ponownie. <a href="${match.route.path}" class="loaderBox__btn" data-link>Try Again</a>`;
+            clearTimeout(loaderTimeOut);
+            return;
+        }
 
     } else {
         const main = document.querySelector('main');
         const mainChildren = Array.from(main.children);
+        const loaderBox = document.querySelector('.loaderBox');
 
-        for (let i = 0; i < mainChildren.length; i++) {
+        main.setAttribute('style', 'height: 477px; overflow: hidden;')
+        loaderBox.classList.add('flex');
+        const loaderTimeOut = setTimeout(() => {
+            const spanMessage = loaderBox.querySelector('span');
+            spanMessage.innerText = 'Strona ładuje się dłużej niż zwykle. Proszę sprawdzić swoje połączenie z internetem.';
+
+        }, 5000);
+
+        for (let i = 1; i < mainChildren.length; i++) {
             mainChildren[i].remove();
         }
 
-        if (match.route.path.indexOf('/articles/') !== -1) {
-            const html = await view.getHtml('introduction.html');
-            main.appendChild(html);
-            view.setTitle();
-        } else {
-            const html = await view.getHtml();
-            main.appendChild(html);
-            view.setTitle();
+        try {
+            if (match.route.path.indexOf('/articles/') !== -1) {
+                const html = await view.getHtml('introduction.html');
+                main.appendChild(html);
+                view.setTitle();
+            } else {
+                const html = await view.getHtml();
+                main.appendChild(html);
+                view.setTitle();
+            }
+
+            clearTimeout(loaderTimeOut);
+            loaderBox.classList.remove('flex');
+            main.setAttribute('style', '');
+
+        } catch (e) {
+            const spanMessage = loaderBox.querySelector('span');
+            spanMessage.innerHTML = `Nie udało mi się połączyć z serwerem. Proszę sprawdź swoje połączenie z internetem i spróbuj ponownie. <a href="${match.route.path}" class="loaderBox__btn" data-link>Try Again</a>`;
+            clearTimeout(loaderTimeOut)
+            return;
         }
 
     }
@@ -133,5 +181,13 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
             burgerButtonElements[1].classList.remove('animate-hiddenBurgerElement2');
         }, 125);
         openClosePhoneMenuCounter = 0;
+    }
+
+    const sectionButtons = document.querySelectorAll('.navigation-aside__list-element');
+
+    if (sectionButtons) {
+        sectionButtons.forEach(sectionButton => {
+            sectionButton.addEventListener('click', clickedSectionButtons);
+        });
     }
 }
