@@ -203,6 +203,8 @@ module.exports = {
             hidden: 'hidden 1s both',
             appear: 'appear 1s both',
             menuAnimation: 'menuAnimation 1s cubic-bezier(0.23, 1, 0.320, 1) both',
+            openPhoneMenu: 'openPhoneMenuAnimation 1s cubic-bezier(0.23, 1, 0.320, 1) both',
+            closePhoneMenu: 'closePhoneMenuAnimation 1s cubic-bezier(0.23, 1, 0.320, 1) both',
             burgerElement1: 'animateBurgerElement1 .25s linear both',
             burgerElement3: 'animateBurgerElement3 .25s linear both',
             unAnimateBurgerElement1: 'unAnimateBurgerElement1 .25s linear both',
@@ -640,10 +642,28 @@ module.exports = {
             },
             menuAnimation: {
                 '0%': {
-                    transform: 'translateY(-176px)'
+                    transform: 'translateY(-100%)',
+                    height: '174px'
                 },
                 '100%': {
-                    transform: 'translateY(0)'
+                    transform: 'translateY(0)',
+                    height: '174px'
+                }
+            },
+            openPhoneMenuAnimation: {
+                '0%': {
+                    transform: 'translateX(100%)'
+                },
+                '100%': {
+                    transform: 'translateX(0)',
+                }
+            },
+            closePhoneMenuAnimation: {
+                '0%': {
+                    transform: 'translateX(0)'
+                },
+                '100%': {
+                    transform: 'translateX(100%)',
                 }
             },
             animateBurgerElement1: {

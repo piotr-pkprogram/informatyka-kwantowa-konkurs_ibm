@@ -1,7 +1,48 @@
+//@ts-nocheck
 const navigateTo = ( /** @type {string} */ url) => {
     const locationPathNameBeforePushState = location.pathname;
     history.pushState(null, null, url)
     router(locationPathNameBeforePushState);
+}
+
+const substringOfHrefAttributes = (prefix) => {
+    const header = document.querySelector('.header');
+    const phoneHeader = document.querySelector('.phone-header');
+    const phoneMenu = document.querySelector('.phone-menu');
+    const footer = document.querySelector('.footer');
+
+    const aLinks = [Array.from(header.querySelectorAll('a')), Array.from(phoneHeader.querySelectorAll('a')), Array.from(phoneMenu.querySelectorAll('a')), Array.from(footer.querySelectorAll('a'))].flat();
+
+    aLinks.forEach(aLink => {
+        const hrefAttr = aLink.getAttribute('href');
+        const indexOfPrefix = hrefAttr.indexOf(prefix);
+        const prefixOfALink = hrefAttr.slice(0, indexOfPrefix + prefix.length);
+        const targetOfALink = aLink.getAttribute('target');
+
+        if (indexOfPrefix === -1 && prefixOfALink !== '#') {
+            if (targetOfALink !== '_blank') {
+                switch (prefix) {
+                    case './':
+                        const newHrefAttr = hrefAttr.replace(/..\/..\//, './').replace(/..\//, './');
+                        aLink.setAttribute('href', newHrefAttr);
+                        break;
+                    case '../':
+                        const newHrefAttr2 = hrefAttr.replace(/..\/..\//, '../').replace(/.\//, '../');
+                        aLink.setAttribute('href', newHrefAttr2);
+                        break;
+                    case '../../':
+                        const newHrefAttr3 = hrefAttr.replace(/..\//, '../../').replace(/.\//, '../../');
+                        aLink.setAttribute('href', newHrefAttr3);
+                        break;
+
+                }
+            }
+        } else if (prefix === './' && prefixOfALink !== '#' && targetOfALink !== '_blank') {
+            const newHrefAttr = hrefAttr.replace(/..\/..\//, './').replace(/..\//, './');
+            aLink.setAttribute('href', newHrefAttr);
+        }
+    });
+
 }
 
 const router = async( /** @type {string} */ locationPathNameBeforePushState) => {
@@ -70,5 +111,27 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
             view.setTitle();
         }
 
+    }
+
+    if (locationPathNameBeforePushState !== match.route.path)
+        substringOfHrefAttributes(view.prefix);
+
+    if (document.body.offsetWidth <= 972) {
+        const phoneMenu = document.querySelector('.phone-menu');
+        phoneMenu.setAttribute('style', 'transform: translateX(100%) !important;')
+        phoneMenu.classList.add('animate-closePhoneMenu');
+        phoneMenu.classList.remove('animate-openPhoneMenu');
+
+        burgerButtonElements[0].classList.add('animate-unAnimateBurgerElement1');
+        burgerButtonElements[0].classList.remove('animate-burgerElement1');
+
+        burgerButtonElements[2].classList.add('animate-unAnimateBurgerElement3');
+        burgerButtonElements[2].classList.remove('animate-burgerElement3');
+
+        setTimeout(() => {
+            burgerButtonElements[1].classList.add('animate-appearBurgerElement2');
+            burgerButtonElements[1].classList.remove('animate-hiddenBurgerElement2');
+        }, 125);
+        openClosePhoneMenuCounter = 0;
     }
 }

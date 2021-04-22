@@ -105,7 +105,7 @@ const devWatch = () => {
     watch('./tailwind.config.js', bundleSass);
     watch('./src/js/**/*.js', series(bundleJs, moveJsWebshim));
     watch('./src/img/**/*.*', moveImg);
-    watch('./dist').on('change', browserSync.reload);
+    // watch('./dist').on('change', browserSync.reload);
 }
 
 // prodBuild

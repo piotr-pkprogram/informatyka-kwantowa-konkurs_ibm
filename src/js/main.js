@@ -11,6 +11,9 @@ window.onload = function() {
             const parentHref = parent.getAttribute('href');
 
             navigateTo(parentHref);
+        } else if (e.target.matches('[data-start]')) {
+            e.preventDefault();
+            navigateTo('/');
         }
     });
 

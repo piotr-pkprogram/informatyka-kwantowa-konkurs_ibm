@@ -39,7 +39,7 @@ class AbstractSectionsView extends AbstractView {
 
         const sectionLiElements = this.article.sections.map(({ title, url }) => {
             const newLinkSection = this.createLinkSection(title, url);
-
+ 
             return newLinkSection;
         });
 

@@ -6,6 +6,7 @@ const burgerButtonElements = Array.from(burgerButton.children);
 const openClosePhoneMenu = () => {
 
     if (openClosePhoneMenuCounter === 0) {
+        phoneMenu.setAttribute('style', '');
 
         phoneMenu.classList.remove('animate-closePhoneMenu');
         phoneMenu.classList.add('animate-openPhoneMenu');
@@ -23,6 +24,7 @@ const openClosePhoneMenu = () => {
 
         openClosePhoneMenuCounter++;
     } else {
+        phoneMenu.setAttribute('style', '');
         phoneMenu.classList.add('animate-closePhoneMenu');
         phoneMenu.classList.remove('animate-openPhoneMenu');
 
