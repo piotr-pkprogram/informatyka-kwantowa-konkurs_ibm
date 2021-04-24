@@ -47,6 +47,7 @@ class AbstractSectionsView extends AbstractView {
 
         sectionLiElements.forEach(section => { navigationAsideList.appendChild(section); });
 
+
         navigationAside.appendChild(navigationAsideOpenBtn);
         navigationAside.appendChild(hr);
         navigationAside.appendChild(navigationAsideList);
@@ -63,7 +64,8 @@ class AbstractSectionsView extends AbstractView {
         await this.getArticleValue(pathArticleValue);
         articleContainer.innerHTML = loaderBox + this.articleValue;
 
-        articleAndMenu.appendChild(navigationAside);
+        if (this.article.sections.length > 1)
+            articleAndMenu.appendChild(navigationAside);
         articleAndMenu.appendChild(articleContainer);
 
         html.appendChild(titleContainer);

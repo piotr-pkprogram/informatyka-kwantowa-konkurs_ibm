@@ -6,8 +6,9 @@ const header = document.querySelector('.header');
 const menuAnimation = () => {
     const main = document.querySelector('main')
 
-    if (window.pageYOffset >= 355 && document.body.offsetWidth >= 954) {
-        header.classList.add('fixed', 'bg-steel-900', 'z-10', 'top-0', 'animate-menuAnimation');
+    if (window.pageYOffset >= 354 && document.body.offsetWidth >= 954) {
+        header.classList.add('bg-steel-900', 'z-10');
+        header.classList.add('top-0', 'animate-menuAnimation');
         headerLogoImg.classList.add('w-auto', 'max-h-28', 'min-w-0.5');
         headerTitle.classList.add('text-xl', 'max-h-28');
         headerSpan.classList.add('block', 'text-lg');
@@ -18,5 +19,6 @@ const menuAnimation = () => {
         headerTitle.classList.remove('text-xl', 'max-h-28');
         headerSpan.classList.remove('block', 'text-lg');
         main.style.marginTop = '0';
+
     }
 }

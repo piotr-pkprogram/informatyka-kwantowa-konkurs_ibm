@@ -3,7 +3,8 @@ const navigationAside = document.querySelector('.navigation-aside__list');
 const articleContainer = document.querySelector('.article-container');
 
 const fixedNavigationAside = () => {
-
+    const articleContainer = document.querySelector('.article-container');
+    const navigationAside = document.querySelector('.navigation-aside__list');
     const navigationAsideWidth = window.getComputedStyle(navigationAside).getPropertyValue('width');
 
     if (window.pageYOffset >= 497) {

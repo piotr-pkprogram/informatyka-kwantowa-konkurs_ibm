@@ -23,22 +23,22 @@ const substringOfHrefAttributes = (prefix) => {
             if (targetOfALink !== '_blank') {
                 switch (prefix) {
                     case './':
-                        const newHrefAttr = hrefAttr.replace(/..\/..\//, './').replace(/..\//, './');
+                        const newHrefAttr = hrefAttr.replace('../../', './').replace('../', './');
                         aLink.setAttribute('href', newHrefAttr);
                         break;
                     case '../':
-                        const newHrefAttr2 = hrefAttr.replace(/..\/..\//, '../').replace(/.\//, '../');
+                        const newHrefAttr2 = hrefAttr.replace('../../', '../').replace('./', '../');
                         aLink.setAttribute('href', newHrefAttr2);
                         break;
                     case '../../':
-                        const newHrefAttr3 = hrefAttr.replace(/..\//, '../../').replace(/.\//, '../../');
+                        const newHrefAttr3 = hrefAttr.replace('../', '../../').replace('./', '../../');
                         aLink.setAttribute('href', newHrefAttr3);
                         break;
 
                 }
             }
         } else if (prefix === './' && prefixOfALink !== '#' && targetOfALink !== '_blank') {
-            const newHrefAttr = hrefAttr.replace(/..\/..\//, './').replace(/..\//, './');
+            const newHrefAttr = hrefAttr.replace('../../', './').replace('../', './');
             aLink.setAttribute('href', newHrefAttr);
         }
     });
@@ -52,11 +52,13 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
     const routes = [
         { path: '/', view: new AbstractLinkArticlesView('Informatyka kwantowa dla każdego', [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej', new Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html')), new Article('Algorytmy', 'quantum_algorithms', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html'))], './', 'Informatyka kwantowa dla każdego - konkurs IBM') },
         { path: '/index.html', view: new AbstractLinkArticlesView('Informatyka kwantowa dla każdego', [new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej', new Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html')), new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html')), new Article('Algorytmy', 'quantum_algorithms', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html'))], './', 'Informatyka kwantowa dla każdego - konkurs IBM') },
-        { path: '/subpages/for_organisers.html', view: new AbstractLinkArticlesView('Dla Organizatorów', [], '../', 'Dla Organizatorów - konkurs IBM Informatyka kwantowa dla każdego') },
+        { path: '/subpages/for_organisers.html', view: new AbstractLinkArticlesView('Dla Organizatorów', [new Article('Instrukcja Uruchomienia', 'projectStartupInstructions', 'Projektu', new Section('Instrukcja Uruchomienia Projektu', 'instruction.html', 'instruction.md')), new Article('Opis Projektu', 'descriptionOfProject', '', new Section('Opis Projektu', 'description.html', 'description.md'))], '../', 'Dla Organizatorów - konkurs IBM Informatyka kwantowa dla każdego') },
         { path: '/subpages/about_me.html', view: new AbstractLinkArticlesView('O Mnie', [], '../', 'O Mnie - konkurs IBM Informatyka kwantowa dla każdego') },
         { path: '/articles/introduction_to_quantum_compiuting/', view: new AbstractSectionsView(new Article('Wprowadzenie do', 'introduction_to_quantum_compiuting', 'Informatyki kwantowej', new Section('Co to jest informatyka kwantowa?', 'whatIsTheQuantumCompiuting.html', 'introduction.md'), new Section('Czym jest qubit?', 'whatIsAQubit.html', 'whatIsAQubit.md'), new Section('Co to jest splątanie kwantowe?', 'whatIsAQuantumEntanglement.html', 'whatIsAQuantumEntanglement.md'), new Section('Czym jest komputer kwantowy i jak działa?', 'whatIsAQuantumComputer.html', 'whatIsAQuantumComputer.md'), new Section('Jak zbudowany jest komputer kwantowy?', 'howAQuantumComputerIsBuilt.html', 'howAQuantumComputerIsBuilt.md')), '../../', 'Wprowadzenie do Informatyki kwantowej - konkurs IBM') },
         { path: '/articles/computing_and_Quantum_Circuits/', view: new AbstractSectionsView(new Article('Obliczenia i Obwody', 'computing_and_Quantum_Circuits', 'kwantowe', new Section('Wprowadzenie', 'introdaction.html', 'introdaction.md'), new Section('Bramka Not', 'not_gate.html', 'not_gate.md'), new Section('Tworzenie superpozycji i interferencji za pomocą bramki Hadamarda', 'H_gate.html', 'H_gate.md'), new Section('Faza kwantowa i kąt fazowy qubitu', 'phase_angle.html', 'phase_angle.md'), new Section('Bramki ROT', 'ROT_gates.html', 'ROT_gates.md'), new Section('Więcej o bramkach negujących', 'moreOfNegatingGates.html', 'moreOfNegatingGates.md'), new Section('Identyczność i bramka Unitary', 'I_and_U_gate.html', 'I_and_U_gate.md'), new Section('Splątania kwantowe w bramkach - CNOT i Toffoly', 'entanglement_in_quantum_gates.html', 'entanglement_in_quantum_gates.md'), new Section('Zamiana wartości stanów qubitów - SWAP i CS SWAP', 'Swap_and_Csswap_gates.html', 'Swap_and_Csswap_gates.md')), '../../', 'Obliczenia i Obwody kwantowe - konkurs IBM') },
         { path: '/articles/quantum_algorithms/', view: new AbstractSectionsView(new Article('Algorytmy kwantowe', 'quantum_algorithms', '', new Section('Wprowadzenie', 'introdaction.html', 'introdaction.md'), new Section('Algorytm Deutscha-Jozsy', 'deutscha-jozsy-algorithm.html', 'deutscha-jozsy-algorithm.md')), '../../', 'Algorytmy kwantowe - konkurs IBM') },
+        { path: '/articles/projectStartupInstructions/', view: new AbstractSectionsView(new Article('Instrukcja Uruchomienia', 'projectStartupInstruction', 'Projektu', new Section('Instrukcja Uruchomienia Projektu', 'instruction.html', 'instruction.md')), '../../', 'Instrukcja Uruchomienia Projektu - konkurs IBM') },
+        { path: '/articles/descriptionOfProject/', view: new AbstractSectionsView(new Article('Opis Projektu', 'descriptionOfProject', '', new Section('Opis Projektu', 'description.html', 'description.md')), '../../', 'Opis Projektu - konkurs IBM') }
     ];
 
     const potentialMatches = routes.map(route => {
@@ -91,7 +93,7 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
         const loaderBox = articleContainer.querySelector('.loaderBox');
 
         articleContainer.setAttribute('style', 'height: 215px; overflow: hidden;')
-        loaderBox.classList.add('flex');
+        loaderBox.classList.add('grid');
         const loaderTimeOut = setTimeout(() => {
             const spanMessage = loaderBox.querySelector('span');
             spanMessage.innerText = 'Strona ładuje się dłużej niż zwykle. Proszę sprawdzić swoje połączenie z internetem.';
@@ -108,7 +110,7 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
             clearTimeout(loaderTimeOut);
             const loaderBox = articleContainer.querySelector('.loaderBox');
 
-            loaderBox.classList.remove('flex');
+            loaderBox.classList.remove('grid');
 
             articleContainer.setAttribute('style', '');
         } catch (e) {
@@ -126,7 +128,7 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
         const loaderBox = document.querySelector('.loaderBox');
 
         main.setAttribute('style', 'height: 477px; overflow: hidden;')
-        loaderBox.classList.add('flex');
+        loaderBox.classList.add('grid');
         const loaderTimeOut = setTimeout(() => {
             const spanMessage = loaderBox.querySelector('span');
             spanMessage.innerText = 'Strona ładuje się dłużej niż zwykle. Proszę sprawdzić swoje połączenie z internetem.';
@@ -149,7 +151,7 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
             }
 
             clearTimeout(loaderTimeOut);
-            loaderBox.classList.remove('flex');
+            loaderBox.classList.remove('grid');
             main.setAttribute('style', '');
 
         } catch (e) {
@@ -190,4 +192,13 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState) => 
             sectionButton.addEventListener('click', clickedSectionButtons);
         });
     }
+
+    const articlesNavigationBtn = document.querySelector('.navigation-aside__open-btn');
+    const articlesNavigationList = document.querySelector('.navigation-aside__list');
+
+    if (articlesNavigationList != null)
+        window.addEventListener('scroll', fixedNavigationAside);
+
+    if (articlesNavigationList != null)
+        articlesNavigationBtn.addEventListener('click', openArticlesNavigation);
 }

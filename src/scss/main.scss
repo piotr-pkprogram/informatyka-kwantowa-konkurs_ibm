@@ -3,6 +3,10 @@
     @tailwind utilities;
     @import './_base-preset.scss';
     @import './_mixins.scss';
+    html {
+        // scroll-snap-type: y proximity;
+    }
+    
     body {
         @apply bg-steel-900 text-txmain relative w-full;
     }
@@ -22,7 +26,8 @@
     .header {
         @apply hidden w-full;
         @media (min-width: 972px) {
-            @apply grid border-b-1.5;
+            @apply grid border-b-1.5 sticky;
+            // scroll-snap-align: start;
         }
         &__link {
             @apply grid grid-flow-col;

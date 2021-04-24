@@ -17,6 +17,10 @@ window.onload = function() {
         }
     });
 
+    window.addEventListener('popstate', (e) => {
+        navigateTo(e.target.href);
+    });
+
     if (sectionButtons) {
         sectionButtons.forEach(sectionButton => {
             sectionButton.addEventListener('click', clickedSectionButtons);

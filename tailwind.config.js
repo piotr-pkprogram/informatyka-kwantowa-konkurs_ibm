@@ -643,11 +643,9 @@ module.exports = {
             menuAnimation: {
                 '0%': {
                     transform: 'translateY(-100%)',
-                    height: '174px'
                 },
                 '100%': {
                     transform: 'translateY(0)',
-                    height: '174px'
                 }
             },
             openPhoneMenuAnimation: {
