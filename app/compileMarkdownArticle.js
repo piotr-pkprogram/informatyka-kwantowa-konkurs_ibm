@@ -21,7 +21,9 @@ const compileMarkdownArticle = (req, res) => {
                 throw err;
             }
 
-            const markdownCompiler = new Remarkable();
+            const markdownCompiler = new Remarkable({
+                html: true
+            });
 
             const htmlArticleValue = markdownCompiler.render(data);
 
