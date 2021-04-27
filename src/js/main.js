@@ -17,8 +17,8 @@ window.onload = function() {
         }
     });
 
-    window.addEventListener('popstate', (e) => {
-        navigateTo(e.target.href);
+    window.addEventListener('popstate', () => {
+        router();
     });
 
     if (sectionButtons) {

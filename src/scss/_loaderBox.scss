@@ -1,6 +1,17 @@
 .loaderBox {
-    @apply absolute w-full h-full justify-items-center z-10 bg-steel-900 hidden content-center;
+    @apply absolute w-full h-full justify-items-center z-10 bg-steel-900 hidden content-center gap-2;
     &__loader {
         @apply animate-spin h-18;
+    }
+    &__span {
+        @apply grid justify-items-center;
+    }
+    &__btn {
+        @apply text-plum-500 underline transition-colors;
+        @media (min-width: 972px) {
+            &:hover {
+                @apply text-txmain;
+            }
+        }
     }
 }

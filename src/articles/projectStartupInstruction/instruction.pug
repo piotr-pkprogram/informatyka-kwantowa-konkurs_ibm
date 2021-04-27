@@ -1,0 +1,19 @@
+extends ../../_layout_
+
+block variables
+    -let prefix = '../../';
+    -const description = '';
+    -const keywords = '';
+    -const title = 'Instrukcja Uruchomienia Projektu - konkurs IBM';
+    -const site_name = 'Instrukcja Uruchomienia Projektu';
+    -const url = '';
+    -const sectionTitle = 'Instrukcja Uruchomienia Projektu';
+    -const article = new Article('Instrukcja Uruchomienia', 'projectStartupInstruction', 'Projektu', Section('Instrukcja Uruchomienia Projektu', 'instruction.html'));
+    -const clickedLink = 4;
+
+block main
+    .article-and-menu
+        include ../../components/aside.pug
+        article.article-container
+            include ../../components/loaderBox.pug
+            include:markdown-it ./instruction.md     

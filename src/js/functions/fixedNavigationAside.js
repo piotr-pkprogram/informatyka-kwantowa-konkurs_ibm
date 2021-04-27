@@ -5,9 +5,11 @@ const articleContainer = document.querySelector('.article-container');
 const fixedNavigationAside = () => {
     const articleContainer = document.querySelector('.article-container');
     const navigationAside = document.querySelector('.navigation-aside__list');
+    if (!navigationAside)
+        return;
     const navigationAsideWidth = window.getComputedStyle(navigationAside).getPropertyValue('width');
 
-    if (window.pageYOffset >= 497) {
+    if (window.pageYOffset >= 650) {
         navigationAside.classList.add('fixed', 'top-48');
         navigationAside.style.width = navigationAsideWidth;
         articleContainer.style.marginLeft = parseInt(navigationAsideWidth + 5) + 'px';

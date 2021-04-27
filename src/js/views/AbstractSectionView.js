@@ -37,13 +37,24 @@ class AbstractSectionsView extends AbstractView {
         const navigationAsideList = document.createElement('ul');
         navigationAsideList.classList.add('navigation-aside__list');
 
+        let sectionIndex;
+
+        if (pathArticleValue === 'whatIsTheQuantumCompiuting.html')
+            sectionIndex = await this.article.sections.findIndex(section => section.linkValue === 'introduction.html'.replace('.html', '.md'));
+        else
+            sectionIndex = await this.article.sections.findIndex(section => section.linkValue === pathArticleValue.replace('.html', '.md'));
+
+        if (!sectionIndex || sectionIndex === -1) {
+            sectionIndex = 0;
+        }
+
         const sectionLiElements = this.article.sections.map(({ title, url }) => {
             const newLinkSection = this.createLinkSection(title, url);
 
             return newLinkSection;
         });
 
-        sectionLiElements[0].classList.add('navigation-aside__list-element--clicked');
+        sectionLiElements[sectionIndex].classList.add('navigation-aside__list-element--clicked');
 
         sectionLiElements.forEach(section => { navigationAsideList.appendChild(section); });
 

@@ -41,7 +41,7 @@
 }
 
 .article-container {
-    @apply flex justify-center flex-wrap p-2 mb-3 w-full relative;
+    @apply flex justify-center flex-wrap p-2 mb-3 w-full relative text-xl;
     @media (min-width: 610px) {
         @apply w-4/5 shadow-3xl;
     }
