@@ -30,6 +30,7 @@ module.exports = {
 
             main: '#0B102F',
             txmain: '#F2FFFF',
+            'dark-blue': '#2a4365',
             steel: {
                 '50': '#f6fafb',
                 '100': '#eaf7f9',
