@@ -99,10 +99,13 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState = ''
     if (match.route.path.indexOf('/articles/') !== -1 && locationPathNameBeforePushState.indexOf(match.route.path) !== -1) {
         const pathArticleValue = location.pathname.slice(match.route.path.length);
         const articleContainer = document.querySelector('.article-container');
+        const navigationAsideList = document.querySelector('.navigation-aside__list');
         const articleChildren = Array.from(articleContainer.children);
         const loaderBox = articleContainer.querySelector('.loaderBox');
 
-        articleContainer.setAttribute('style', 'height: 215px; overflow: hidden;')
+        const navigationAsideListHeight = window.getComputedStyle(navigationAsideList).getPropertyValue('height');
+
+        articleContainer.setAttribute('style', `height: ${navigationAsideListHeight}; overflow: hidden;`)
         loaderBox.classList.add('grid');
         const loaderTimeOut = setTimeout(() => {
             const spanMessage = loaderBox.querySelector('span');
@@ -213,4 +216,6 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState = ''
 
     if (articlesNavigationList != null)
         articlesNavigationBtn.addEventListener('click', openArticlesNavigation);
+
+    targetLinks();
 }
