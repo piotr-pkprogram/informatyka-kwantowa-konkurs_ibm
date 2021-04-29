@@ -181,24 +181,9 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState = ''
     if (locationPathNameBeforePushState !== match.route.path)
         substringOfHrefAttributes(view.prefix, locationPathNameBeforePushState);
 
-    if (document.body.offsetWidth <= 972) {
-        const phoneMenu = document.querySelector('.phone-menu');
-        phoneMenu.setAttribute('style', 'transform: translateX(100%) !important;')
-        phoneMenu.classList.add('animate-closePhoneMenu');
-        phoneMenu.classList.remove('animate-openPhoneMenu');
-
-        burgerButtonElements[0].classList.add('animate-unAnimateBurgerElement1');
-        burgerButtonElements[0].classList.remove('animate-burgerElement1');
-
-        burgerButtonElements[2].classList.add('animate-unAnimateBurgerElement3');
-        burgerButtonElements[2].classList.remove('animate-burgerElement3');
-
-        setTimeout(() => {
-            burgerButtonElements[1].classList.add('animate-appearBurgerElement2');
-            burgerButtonElements[1].classList.remove('animate-hiddenBurgerElement2');
-        }, 125);
-        openClosePhoneMenuCounter = 0;
-    }
+    // if (document.body.offsetWidth <= 972) {
+    //     openClosePhoneMenu();
+    // }
 
     const sectionButtons = document.querySelectorAll('.navigation-aside__list-element');
 

@@ -18,8 +18,8 @@ const openClosePhoneMenu = () => {
         burgerButtonElements[2].classList.remove('animate-unAnimateBurgerElement3');
 
         setTimeout(() => {
-            burgerButtonElements[1].classList.add('animate-hiddenBurgerElement2');
-            burgerButtonElements[1].classList.remove('animate-appearBurgerElement2');
+            burgerButtonElements[1].classList.add('opacity-0');
+            burgerButtonElements[1].classList.remove('opacity-1');
         }, 125);
 
         openClosePhoneMenuCounter++;
@@ -35,8 +35,8 @@ const openClosePhoneMenu = () => {
         burgerButtonElements[2].classList.remove('animate-burgerElement3');
 
         setTimeout(() => {
-            burgerButtonElements[1].classList.add('animate-appearBurgerElement2');
-            burgerButtonElements[1].classList.remove('animate-hiddenBurgerElement2');
+            burgerButtonElements[1].classList.add('opacity-1');
+            burgerButtonElements[1].classList.remove('opacity-0');
         }, 125);
 
         openClosePhoneMenuCounter--;

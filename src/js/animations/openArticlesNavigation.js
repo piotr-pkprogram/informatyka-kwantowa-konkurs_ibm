@@ -3,6 +3,7 @@ const articlesNavigationList = document.querySelector('.navigation-aside__list')
 let openArticlesNavigationCounter = 0;
 
 const openArticlesNavigation = () => {
+    const articlesNavigationList = document.querySelector('.navigation-aside__list');
 
     if (openArticlesNavigationCounter === 0) {
         articlesNavigationList.classList.add('block', 'animate-appear');

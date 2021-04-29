@@ -44,7 +44,7 @@ Jeśli jednak rozwiązując ten problem mamy do dyspozycji komputer kwantowy to 
 
  ![prawdopodobieństwo](../../img/circuit-kms6lnin.png)
 
-Jak widzisz w tym przypadku jest to funkcja stała. Teraz dopowiem ci na pytanie dlaczego to działa. Przypomnij sobie działanie [bramki Hadamarda](../computing_and_Quantum_Circuits/../../computing_and_Quantum_Circuits/H_gate.html) dla stanu ![stan 0](../../img/stan_0.svg?display=inline), tworzy ona wtedy superpozycję w stanie ![stan 0](../../img/stan_0.svg?display=inline) i ![stan 1](../../img/stan_1.svg?display=inline)
+Jak widzisz w tym przypadku jest to funkcja stała. Teraz dopowiem ci na pytanie dlaczego to działa. Przypomnij sobie działanie [bramki Hadamarda](../articles/computing_and_Quantum_Circuits/H_gate.html) dla stanu ![stan 0](../../img/stan_0.svg?display=inline), tworzy ona wtedy superpozycję w stanie ![stan 0](../../img/stan_0.svg?display=inline) i ![stan 1](../../img/stan_1.svg?display=inline)
 Zatem stan jaki otrzymaliśmy po kroku drugim to suma jednolitych superpozycji ![stan 0](../../img/stan_0.svg?display=inline) i ![stan 1](../../img/stan_1.svg?display=inline)każdego z qubitów. Ta grafika przedstawia prawdopodobieństwo na wystąpienie danego stanu po pomiarze:
 
 ![prawdopodobieństwo](../../img/wynik_algorytmu-Deutscha-Jozsy.png)
