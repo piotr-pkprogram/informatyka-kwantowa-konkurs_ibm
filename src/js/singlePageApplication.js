@@ -214,7 +214,7 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState = ''
     const articlesNavigationBtn = document.querySelector('.navigation-aside__open-btn');
     const articlesNavigationList = document.querySelector('.navigation-aside__list');
 
-    if (articlesNavigationList != null)
+    if (articlesNavigationList != null && document.body.offsetWidth > 972)
         window.addEventListener('scroll', fixedNavigationAside);
 
     if (articlesNavigationList != null)
