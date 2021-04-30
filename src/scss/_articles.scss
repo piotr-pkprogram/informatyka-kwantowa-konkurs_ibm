@@ -34,9 +34,9 @@
 }
 
 .article-and-menu {
-    @apply flex justify-center flex-wrap;
+    @apply flex justify-center flex-wrap border-t-3 border-txmain p-3 gap-2;
     @media (min-width: 972px) {
-        @apply grid grid-flow-col border-t-3 border-txmain p-3 gap-2;
+        @apply grid grid-flow-col;
     }
 }
 
