@@ -8,7 +8,10 @@
     }
     
     body {
-        @apply bg-steel-900 text-txmain relative w-full;
+        @apply bg-steel-900 text-txmain relative w-screen;
+        @media (min-width: 401px) {
+            @apply w-full;
+        }
     }
     
     img[src$='?display=inline'] {
@@ -120,6 +123,7 @@
                 }
             }
             &-link {
+                @apply w-full h-full;
                 @media (min-width: 513px) {
                     @apply w-22 h-18;
                 }
@@ -154,7 +158,10 @@
     }
     
     .title-container {
-        @apply h-98 justify-items-center grid grid-rows-2 p-1;
+        @apply h-98 justify-items-center grid grid-rows-2 p-1 w-screen;
+        @media (min-width: 401px) {
+            @apply w-auto;
+        }
         @media (min-width: 972px) {
             @include size(540px, 100%)
         }

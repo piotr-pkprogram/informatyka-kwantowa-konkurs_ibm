@@ -34,14 +34,17 @@
 }
 
 .article-and-menu {
-    @apply flex justify-center flex-wrap border-t-3 border-txmain gap-2;
+    @apply flex justify-center flex-wrap border-t-3 border-txmain gap-2 w-screen;
+    @media (min-width: 401px) {
+        @apply w-auto;
+    }
     @media (min-width: 972px) {
         @apply grid grid-flow-col p-3;
     }
 }
 
 .article-container {
-    @apply flex justify-center flex-wrap p-2 mb-3 w-full relative text-xl;
+    @apply flex justify-center flex-wrap p-2 mb-3 w-full relative text-xl overflow-auto;
     @media (min-width: 610px) {
         @apply w-4/5 shadow-3xl;
     }
@@ -67,7 +70,7 @@
         @apply w-full mt-2;
     }
     & a {
-        @apply text-plum-500 underline transition-colors;
+        @apply text-plum-500 underline transition-colors w-full;
         @media (min-width: 972px) {
             &:hover {
                 @apply text-txmain;
