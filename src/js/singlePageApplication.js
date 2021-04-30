@@ -181,9 +181,27 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState = ''
     if (locationPathNameBeforePushState !== match.route.path)
         substringOfHrefAttributes(view.prefix, locationPathNameBeforePushState);
 
-    // if (document.body.offsetWidth <= 972) {
-    //     openClosePhoneMenu();
-    // }
+    if (document.body.offsetWidth <= 972) {
+        const burgerButton = document.querySelector('.phone-header__burger-menu');
+        const phoneMenu = document.querySelector('.phone-menu');
+        const burgerButtonElements = Array.from(burgerButton.children);
+
+        phoneMenu.setAttribute('style', '');
+        phoneMenu.classList.remove('animate-openPhoneMenu');
+
+        burgerButtonElements[0].classList.add('animate-unAnimateBurgerElement1');
+        burgerButtonElements[0].classList.remove('animate-burgerElement1');
+
+        burgerButtonElements[2].classList.add('animate-unAnimateBurgerElement3');
+        burgerButtonElements[2].classList.remove('animate-burgerElement3');
+
+        setTimeout(() => {
+            burgerButtonElements[1].classList.add('opacity-1');
+            burgerButtonElements[1].classList.remove('opacity-0');
+        }, 125);
+
+        openClosePhoneMenuCounter--;
+    }
 
     const sectionButtons = document.querySelectorAll('.navigation-aside__list-element');
 
