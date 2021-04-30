@@ -9,7 +9,7 @@ const compileMarkdownArticle = (req, res) => {
 
     try {
 
-        fs.readFile(`./markdown/${match[1]}/${match[2]}`, 'utf8', (err, data) => {
+        fs.readFile(`./app/markdown/${match[1]}/${match[2]}`, 'utf8', (err, data) => {
 
             if (err) {
                 if (err.code === 'ENOENT') {
