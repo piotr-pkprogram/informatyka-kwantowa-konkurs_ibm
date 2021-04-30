@@ -181,7 +181,7 @@ const router = async( /** @type {string} */ locationPathNameBeforePushState = ''
     if (locationPathNameBeforePushState !== match.route.path)
         substringOfHrefAttributes(view.prefix, locationPathNameBeforePushState);
 
-    if (document.body.offsetWidth <= 972) {
+    if (document.body.offsetWidth <= 972 && openClosePhoneMenuCounter === 1) {
         const burgerButton = document.querySelector('.phone-header__burger-menu');
         const phoneMenu = document.querySelector('.phone-menu');
         const burgerButtonElements = Array.from(burgerButton.children);
