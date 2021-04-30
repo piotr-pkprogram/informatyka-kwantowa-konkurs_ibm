@@ -1,5 +1,5 @@
 .navigation-aside {
-    @apply border-t-1.5 border-txmain relative z-10 w-full mb-2;
+    @apply relative z-10 w-full mb-2;
     @media (min-width: 972px) {
         @apply border-none;
     }
@@ -34,9 +34,9 @@
 }
 
 .article-and-menu {
-    @apply flex justify-center flex-wrap border-t-3 border-txmain p-3 gap-2;
+    @apply flex justify-center flex-wrap border-t-3 border-txmain gap-2;
     @media (min-width: 972px) {
-        @apply grid grid-flow-col;
+        @apply grid grid-flow-col p-3;
     }
 }
 
