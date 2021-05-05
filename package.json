@@ -10,7 +10,7 @@
         "gulp:devBuild": "gulp devBuild",
         "gulp:prodBuild": "gulp prodBuild",
         "gulp:markdown": "gulp moveMarkdown",
-        "tailwind:init": "tailwind init --full",
+        "tailwind:init": "tailwind init",
         "start": "gulp devBuild && nodemon esm -r ./app/app.js"
     },
     "repository": {

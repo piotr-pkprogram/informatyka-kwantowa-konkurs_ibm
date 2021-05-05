@@ -5,3 +5,4 @@
 /.prettierrc
 /.prettierignore
 /.vscode
+/tailwind-default.config.js
