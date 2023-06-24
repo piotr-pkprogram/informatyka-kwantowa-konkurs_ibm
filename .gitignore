@@ -6,3 +6,4 @@
 /.prettierignore
 /.vscode
 /tailwind-default.config.js
+/dist
